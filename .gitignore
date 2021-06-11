@@ -59,6 +59,6 @@ sysinfo.txt
 crashlytics-build.properties
 
 UnityProject/BoilerCommissioning/ProjectSettings/ProjectVersion.txt
-UnityProject/BoilerCommissioning/Packages/packages-lock.json
-UnityProject/BoilerCommissioning/Packages/packages-lock.json
 UnityProject/BoilerCommissioning/ProjectSettings/ProjectSettings.asset
+UnityProject/BoilerCommissioning/Packages/packages-lock.json
+UnityProject/BoilerCommissioning/ProjectSettings/PackageManagerSettings.asset
