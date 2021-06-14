@@ -5,6 +5,19 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    //this is a sigleton
+    private UIManager() { }
+    public static UIManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+
+
+    public GameObject UIRoot;
+
     //Welcome-stage, Intrudction button press
     public void GoIntruducing()
     {
@@ -14,7 +27,7 @@ public class UIManager : MonoBehaviour
     //Waterfall operation steps button press
     public void GoOperationSteps()
     {
-        throw new System.Exception("Unfinished function");
+        StageManager.instance.SetStage(StageManager.EnumStage.Operatie);
     }
 
     //open world button press

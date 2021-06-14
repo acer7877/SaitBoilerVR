@@ -14,47 +14,58 @@ public class StageManager : MonoBehaviour
     private StageManager() { }
     public static StageManager instance;
 
-
     private void Awake()
     {
         instance = this;
     }
 
+
     private void Start()
     {
+        m_CurStage = EnumStage.Pause;
         SetStage(EnumStage.Welcome);
     }
 
     //For different stage
-    public enum EnumStage { Welcome, Intrudce, Operatie }
+    public enum EnumStage { Pause, Welcome, Intrudce, Operatie }
+    EnumStage m_CurStage;
+    public EnumStage CurrentStage
+    {
+        get { return m_CurStage; }
+    }
     public void SetStage(EnumStage eTargetStage)
     {
+        if (m_CurStage == eTargetStage)
+            return;//nothing to change!
+
+        m_CurStage = eTargetStage;
+
+        GameObject WelcomeUI;
+
         switch (eTargetStage)
         {
             case EnumStage.Operatie:
+                ControllerManager.instance.SetLeftHandModel("Notepad");
+                ControllerManager.instance.SetRightHandModel("Hand");
+                NotepadManager.instance.SetNotepadContext("Stage_Operation");
+                WelcomeUI = GameObject.Find("WelcomeUI");
+                if (WelcomeUI != null) WelcomeUI.SetActive(false);
                 break;
             case EnumStage.Intrudce:
                 ControllerManager.instance.SetLeftHandModel("Notepad");
                 ControllerManager.instance.SetRightHandModel("Hand");
-                SetNotepadContext("Intruducing Mode", "√ Point Anything with right hand to see the indtrduction.<sprite=0>");
-
+                NotepadManager.instance.SetNotepadContext("Stage_Intuduction");
+                WelcomeUI = GameObject.Find("WelcomeUI");
+                if (WelcomeUI != null) WelcomeUI.SetActive(false);
                 break;
             default://including Welcome and unknow situation
                 ControllerManager.instance.SetLeftHandModel("Hand");
                 ControllerManager.instance.SetRightHandModel("Hand");
+                WelcomeUI = GameObject.Find("WelcomeUI");
+                if (WelcomeUI != null) WelcomeUI.SetActive(true);
                 break;
         }
     }
 
 
-    //set text to notepad on the left hand
-    public void SetNotepadContext(string Title, string Context)
-    {
-        GameObject NP_Title = GameObject.Find("Title_np");
-        NP_Title.GetComponent<TMP_Text>().text = Title;
-
-        GameObject NP_Context = GameObject.Find("Context_np");
-        NP_Context.GetComponent<TMP_Text>().text = Context;
-
-    }
 }

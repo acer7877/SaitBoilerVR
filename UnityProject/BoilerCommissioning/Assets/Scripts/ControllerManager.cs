@@ -48,7 +48,7 @@ public class ControllerManager : MonoBehaviour
         if (!RightControllerList.ContainsKey(Model))
             return;
 
-        foreach (string key in LeftControllerList.Keys)
+        foreach (string key in RightControllerList.Keys)
         {
             RightControllerList[key].SetActive(key == Model);
         }
