@@ -17,11 +17,13 @@ public class BCODector : BGameObject
 
     protected override void OnEnable()
     {
+        base.OnEnable();
         m_interactableObject.InteractableObjectTouched += CheckDetector;
     }
 
     protected override void OnDisable()
     {
+        base.OnDisable();
         m_interactableObject.InteractableObjectTouched -= CheckDetector;
     }
     private void Start()
