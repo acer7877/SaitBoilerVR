@@ -7,14 +7,23 @@ public class BCODector : BGameObject
 {
     GameObject m_light;
     bool m_isWorking;
+    VRTK_InteractableObject m_interactableObject;
     private void Awake()
     {
         gameObject.AddComponent<VRTK_InteractableObject>();
-        VRTK_InteractableObject v = GetComponent<VRTK_InteractableObject>();
-        v.InteractableObjectTouched += CheckDetector;
+        m_interactableObject = GetComponent<VRTK_InteractableObject>();
         m_light = GameObject.Find("GreenLight");
     }
 
+    protected override void OnEnable()
+    {
+        m_interactableObject.InteractableObjectTouched += CheckDetector;
+    }
+
+    protected override void OnDisable()
+    {
+        m_interactableObject.InteractableObjectTouched -= CheckDetector;
+    }
     private void Start()
     {
         m_isWorking = false;

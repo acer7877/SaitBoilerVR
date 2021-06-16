@@ -11,6 +11,7 @@ public class BGameObject : MonoBehaviour
     private void Awake()
     {
         //ObjectManager.instance.RegistGameObject(this.name, this.GetComponentInParent<GameObject>());
+
     }
 
     protected virtual void OnEnable()
