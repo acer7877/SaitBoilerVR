@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using VRTK;
 
 public class ControllerManager : MonoBehaviour
 {
     //this is a sigleton
     private ControllerManager() { }
     public static ControllerManager instance;
-    
+
+    public VRTK_ControllerEvents LeftEvent;
+    public VRTK_ControllerEvents RightEvent;
+
     [SerializeField]
     public StringGO_Dictionary LeftControllerList;
     [SerializeField]
@@ -18,6 +23,7 @@ public class ControllerManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        initButtonSetup();
     }
 
     //set Hand model
@@ -54,6 +60,18 @@ public class ControllerManager : MonoBehaviour
         }
 
         RightControllerCurrentModel = Model;
+
+    }
+
+
+    void initButtonSetup()
+    {
+        LeftEvent.StartMenuPressed += ResetSence;
+    }
+    private void ResetSence(object sender, ControllerInteractionEventArgs e)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SoundManager.instance.Play("resetScene");
 
     }
 }

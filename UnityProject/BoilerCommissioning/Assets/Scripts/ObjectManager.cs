@@ -23,6 +23,9 @@ public class ObjectManager : MonoBehaviour
         m_ObjectList.Remove(name);
     }
 
-
-
+    //When some interactions hanppen, call this function to change the data and do some logic
+    public void Action(string actorName, BChecker.eCheckAction actionType)
+    {
+        StepManager.instance.Action(actorName, actionType);
+    }
 }

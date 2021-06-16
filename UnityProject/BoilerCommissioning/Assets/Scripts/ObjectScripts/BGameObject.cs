@@ -33,8 +33,13 @@ public class BGameObject : MonoBehaviour
 
     protected virtual void BObjectUsed(object sender, InteractableObjectEventArgs e)
     {
+        //In intuducing mode, just show the intudaction onto the notepad
         if (StageManager.instance.CurrentStage == StageManager.EnumStage.Intrudce)
             NotepadManager.instance.SetNotepadContext(this.name);
+
+        //In Operating and Openword mode
+        //if(StageManager.instance.CurrentStage == StageManager.EnumStage.Operatie)
+
     }
 
     protected virtual void BObjectUnused(object sender, InteractableObjectEventArgs e)

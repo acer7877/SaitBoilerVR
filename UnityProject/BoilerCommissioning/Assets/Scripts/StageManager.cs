@@ -45,9 +45,15 @@ public class StageManager : MonoBehaviour
         switch (eTargetStage)
         {
             case EnumStage.Operatie:
+                //controllers
                 ControllerManager.instance.SetLeftHandModel("Notepad");
                 ControllerManager.instance.SetRightHandModel("Hand");
-                NotepadManager.instance.SetNotepadContext("Stage_Operation");
+
+                //init steps
+                //NotepadManager.instance.SetNotepadContext("Stage_Operation");
+                StepManager.instance.StartStepFromBeginning();
+
+                //hide welcomeUI
                 WelcomeUI = GameObject.Find("WelcomeUI");
                 if (WelcomeUI != null) WelcomeUI.SetActive(false);
                 break;
