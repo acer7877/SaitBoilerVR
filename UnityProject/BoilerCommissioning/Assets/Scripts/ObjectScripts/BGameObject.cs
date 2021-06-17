@@ -1,38 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using VRTK;
 
 //use/touch function for the interactable objects
 public class BGameObject : MonoBehaviour
 {
-    [Tooltip("We will set the VRTK_InteractableObject from same Gameobject into this if leave it NULL")]
-    public VRTK_InteractableObject VRTKIO;
-    private void Awake()
+   
+    protected VRTK_InteractableObject VRTKIO;
+    [Tooltip("Outline highlight will draw new mesh out of the base mesh. This is the distance between base and new-drawing mesh. The bigger for the distance, the thicker the outline is.")]
+    public float HighlightThickness = 0.5f;
+    protected virtual void Awake()
     {
         //ObjectManager.instance.RegistGameObject(this.name, this.GetComponentInParent<GameObject>());
 
+        VRTKIO = BAddComponent<VRTK_InteractableObject>(gameObject);
+
+        VRTK_InteractObjectHighlighter highlighter = BAddComponent<VRTK_InteractObjectHighlighter>(gameObject);
+        highlighter.touchHighlight = Color.green;
+        highlighter.touchHighlight = Color.red;
+
+        VRTK.Highlighters.BOutlineHightlight outlineDrawer = BAddComponent<VRTK.Highlighters.BOutlineHightlight>(gameObject);
+        outlineDrawer.thickness = HighlightThickness;
+        outlineDrawer.enableSubmeshHighlight = true;
     }
 
     protected virtual void OnEnable()
     {
-        VRTKIO = (VRTKIO == null ? GetComponent<VRTK_InteractableObject>() : VRTKIO);
-        if (VRTKIO == null)
-            return;
-        VRTKIO.InteractableObjectTouched += BObjectUsed;
-        VRTKIO.InteractableObjectUntouched += BObjectUnused;
+        VRTKIO.InteractableObjectTouched += BObjectTouch;
+        VRTKIO.InteractableObjectUntouched += BObjectUnTouch;
     }
 
     protected virtual void OnDisable()
     {
         if (VRTKIO == null)
             return;
-        VRTKIO.InteractableObjectTouched -= BObjectUsed;
-        VRTKIO.InteractableObjectUntouched -= BObjectUnused;
+        VRTKIO.InteractableObjectTouched -= BObjectTouch;
+        VRTKIO.InteractableObjectUntouched -= BObjectUnTouch;
 
     }
 
-    protected virtual void BObjectUsed(object sender, InteractableObjectEventArgs e)
+    protected virtual void BObjectTouch(object sender, InteractableObjectEventArgs e)
     {
         //In intuducing mode, just show the intudaction onto the notepad
         if (StageManager.instance.CurrentStage == StageManager.EnumStage.Intrudce)
@@ -43,8 +52,15 @@ public class BGameObject : MonoBehaviour
 
     }
 
-    protected virtual void BObjectUnused(object sender, InteractableObjectEventArgs e)
+    protected virtual void BObjectUnTouch(object sender, InteractableObjectEventArgs e)
     {
     }
 
+    public static T BAddComponent<T>(GameObject GO) where T : Component
+    {
+        T t = GO.AddComponent<T>();
+        SerializedObject so = new SerializedObject(t);
+        so.Update();
+        return t;
+    }
 }

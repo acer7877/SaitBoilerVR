@@ -8,10 +8,12 @@ public class BCODector : BGameObject
     GameObject m_light;
     bool m_isWorking;
     VRTK_InteractableObject m_interactableObject;
-    private void Awake()
+
+    protected override void Awake()
     {
-        gameObject.AddComponent<VRTK_InteractableObject>();
-        m_interactableObject = GetComponent<VRTK_InteractableObject>();
+        base.Awake();
+        m_interactableObject.isGrabbable = false;
+
         m_light = GameObject.Find("GreenLight");
     }
 
@@ -35,11 +37,14 @@ public class BCODector : BGameObject
 
     void CheckDetector(object sender, InteractableObjectEventArgs e)
     {
-        m_isWorking = true;
-        if (m_light != null)
-            m_light.SetActive(true);
+        if (StageManager.instance.CurrentStage == StageManager.EnumStage.Operatie)
+        {
+            m_isWorking = true;
+            if (m_light != null)
+                m_light.SetActive(true);
 
-        ObjectManager.instance.Action(name, BChecker.eCheckAction.ECA_Object_on);
+            ObjectManager.instance.Action(name, BChecker.eCheckAction.ECA_Object_on);
+        }
     }
 
 }
