@@ -14,14 +14,14 @@ public class BValve : BGameObject
 
     protected override void Awake()
     {
-        base.Awake();
-        VRTKIO.isGrabbable = false;
+        //base.Awake();
+        //VRTKIO.isGrabbable = false;
 
         if (Hinge == null)
             Hinge = GameObject.Find("Hinge");
 
         rotator = BAddComponent<VRTK_ArtificialRotator>(gameObject);
-        rotator.operateAxis = OperatingAxis.yAxis;
+        rotator.operateAxis = OperatingAxis.zAxis;
         rotator.angleLimits.minimum = 0;
         rotator.angleLimits.maximum = 90;
         rotator.hingePoint = Hinge.transform;
@@ -35,6 +35,7 @@ public class BValve : BGameObject
         base.OnEnable();
         rotator.MaxLimitReached += valveOnByPlayer;
         rotator.MinLimitReached += valveOffByPlayer;
+
     }
 
     protected override void OnDisable()
