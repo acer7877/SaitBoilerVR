@@ -91,6 +91,8 @@ public class StepManager : MonoBehaviour
         m_currentStep = 0;
         m_allSteps = new List<BStep>();
         BStep step;
+
+        /*
         //Pre-startup procedure(1/2)
         //a.Observe area around the boiler to ensure there are no combustible materials, gases or other flammable liquids or vapors (paint cans, aerosol containers, solvents) (Removal of correct items is required to move onto the next step) 
         step = new BStep();
@@ -108,11 +110,18 @@ public class StepManager : MonoBehaviour
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("CO-Detector", BChecker.eCheckAction.ECA_Object_on));
         m_allSteps.Add(step);
+        */
+        //Filling the system with water(1/n)
+        //?
+        step = new BStep();
+        step.title = "Filling the system with water(1/1)";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("BallValveHandle1", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
 
 
 
 
-        
     }
 
     public void StartStepFromBeginning()

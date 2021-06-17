@@ -6,41 +6,39 @@ using VRTK.Controllables;
 using VRTK.Controllables.ArtificialBased;
 using static VRTK.Controllables.VRTK_BaseControllable;
 
-public class BValve : BGameObject
+public class BValve : MonoBehaviour
 {
     public GameObject Hinge;
     VRTK_ArtificialRotator rotator;
     bool m_isOn;
 
-    protected override void Awake()
+    protected void Awake()
     {
         //base.Awake();
         //VRTKIO.isGrabbable = false;
 
         if (Hinge == null)
             Hinge = GameObject.Find("Hinge");
-
-        rotator = BAddComponent<VRTK_ArtificialRotator>(gameObject);
-        rotator.operateAxis = OperatingAxis.zAxis;
-        rotator.angleLimits.minimum = 0;
-        rotator.angleLimits.maximum = 90;
-        rotator.hingePoint = Hinge.transform;
-        rotator.minMaxThresholdAngle = 5;
+        rotator = GetComponent<VRTK_ArtificialRotator>();
+        //rotator = BAddComponent<VRTK_ArtificialRotator>(gameObject);
+        //rotator.operateAxis = OperatingAxis.zAxis;
+        //rotator.angleLimits.minimum = 0;
+        //rotator.angleLimits.maximum = 90;
+        //rotator.hingePoint = Hinge.transform;
+        //rotator.minMaxThresholdAngle = 5;
 
         m_isOn = false;
     }
 
-    protected override void OnEnable()
+    protected void OnEnable()
     {
-        base.OnEnable();
         rotator.MaxLimitReached += valveOnByPlayer;
         rotator.MinLimitReached += valveOffByPlayer;
 
     }
 
-    protected override void OnDisable()
+    protected void OnDisable()
     {
-        base.OnDisable();
         rotator.MaxLimitReached -= valveOnByPlayer;
         rotator.MinLimitReached -= valveOffByPlayer;
     }

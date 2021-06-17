@@ -62,9 +62,10 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["PaintCan"] = new NotepadData("PaintCan", "Easy to catch fire, put it away from boiler!\n<color=red>!Danger!</color>");
 
         m_intruduction["CO-Detector"] = new NotepadData("CO-Detector", "Carbon monoxide (CO), a colorless, odorless, and tasteless gas. This detector has a green light on when it's safe to work around. When the CO exceeds the safe range, the light will turn red and the detector will sound an alarm.");
+        m_intruduction["BallValveBody1"] = new NotepadData("Ball Valve 1", "This is BallValue 1, it controls balabla....");
         //m_intruduction["TestCube"] = new NotepadData("TestCube just for test", "√ <sprite=0> hahaha <color=red>Red</color> default");
     }
-
+    
 
 
 

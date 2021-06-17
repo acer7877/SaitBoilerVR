@@ -7,12 +7,11 @@ public class BCODector : BGameObject
 {
     GameObject m_light;
     bool m_isWorking;
-    VRTK_InteractableObject m_interactableObject;
 
     protected override void Awake()
     {
         base.Awake();
-        m_interactableObject.isGrabbable = false;
+        VRTKIO.isGrabbable = false;
 
         m_light = GameObject.Find("GreenLight");
     }
@@ -20,13 +19,13 @@ public class BCODector : BGameObject
     protected override void OnEnable()
     {
         base.OnEnable();
-        m_interactableObject.InteractableObjectTouched += CheckDetector;
+        VRTKIO.InteractableObjectTouched += CheckDetector;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        m_interactableObject.InteractableObjectTouched -= CheckDetector;
+        VRTKIO.InteractableObjectTouched -= CheckDetector;
     }
     private void Start()
     {
