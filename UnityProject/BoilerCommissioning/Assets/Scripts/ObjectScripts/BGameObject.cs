@@ -56,11 +56,19 @@ public class BGameObject : MonoBehaviour
     {
     }
 
+    //public static T BAddComponent_<T>(GameObject GO) where T : Component
+    //{
+    //    T t = GO.AddComponent<T>();
+        
+        
+    //    SerializedObject so = new SerializedObject(t);
+    //    so.Update();
+    //    return t;
+    //}
+
     public static T BAddComponent<T>(GameObject GO) where T : Component
     {
         T t = GO.AddComponent<T>();
-        SerializedObject so = new SerializedObject(t);
-        so.Update();
         return t;
     }
 }
