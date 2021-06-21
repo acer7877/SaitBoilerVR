@@ -50,18 +50,18 @@ public class NotepadManager : MonoBehaviour
 
         m_intruduction["TestCube"] = new NotepadData("TestCube just for test", "√ <sprite=0> hahaha <color=red>Red</color> default");
         m_intruduction["Stage_Welcome"] = new NotepadData("Welcome", "<sprite=0> Welcome to Boiler VR Experience");
-        m_intruduction["Stage_Intuduction"] = new NotepadData("What is this?", "Point Anything with right hand to see the indtrduction.");
+        m_intruduction["Stage_Introduction"] = new NotepadData("What is this?", "Point at anything with right hand to see the indtrduction.");
         m_intruduction["Stage_Operation"] = new NotepadData("Pre-startup (1/2)", "Put away flammable things\n<color=yellow>?</color> Bleach\n<color=yellow>?</color> can\n<color=yellow>?</color> whatever");
         m_intruduction["Stage_Operation_Finished"] = new NotepadData("Finished!", "Good job! You finished all the steps!<sprite=0><sprite=0><sprite=0><sprite=0>");
 
 
-        m_intruduction["Cabinet"] = new NotepadData("Cabinet", "Everything you put inside will disappear! Best place for flamable stuffs.");
+        m_intruduction["Cabinet"] = new NotepadData("Safety Cabinet", "This is a safety cabinet used to safely store flammable and combustible contents.");
 
         m_intruduction["Bleach"] = new NotepadData("Bleach", "Easy to catch fire, put it away from boiler!\n<color=red>!Danger!</color>");
-        m_intruduction["AerosolCan"] = new NotepadData("AerosolCan", "Easy to catch fire, put it away from boiler!\n<color=red>!Danger!</color>");
-        m_intruduction["PaintCan"] = new NotepadData("PaintCan", "Easy to catch fire, put it away from boiler!\n<color=red>!Danger!</color>");
+        m_intruduction["AerosolCan"] = new NotepadData("Aerosol Can", "Easy to catch fire, put it away from boiler!\n<color=red>!Danger!</color>");
+        m_intruduction["PaintCan"] = new NotepadData("Paint Can", "Easy to catch fire, put it away from boiler!\n<color=red>!Danger!</color>");
 
-        m_intruduction["CO-Detector"] = new NotepadData("CO-Detector", "Carbon monoxide (CO), a colorless, odorless, and tasteless gas. This detector has a green light on when it's safe to work around. When the CO exceeds the safe range, the light will turn red and the detector will sound an alarm.");
+        m_intruduction["CO-Detector"] = new NotepadData("CO-Detector", "Carbon monoxide (CO) is a colorless, odorless, and tasteless gas. This detector has a <b>green light</b> on when it's <u>safe</u> to work around. When the CO <u>exceeds the safe range</u>, the light will turn <b>red</b> and the detector will sound an alarm.");
         m_intruduction["BallValveBody1"] = new NotepadData("Ball Valve 1", "This is BallValue 1, it controls balabla....");
         //m_intruduction["TestCube"] = new NotepadData("TestCube just for test", "√ <sprite=0> hahaha <color=red>Red</color> default");
     }

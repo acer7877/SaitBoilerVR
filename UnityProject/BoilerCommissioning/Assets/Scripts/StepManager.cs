@@ -29,7 +29,7 @@ public class BChecker
     public string PrintContext()
     {
         //?for unfinished and √for finished
-        string ActionString = isFinished ? "<color=green>√</color> ": "<color=yellow>?</color> ";
+        string ActionString = isFinished ? "<color=green>√</color> ": "☐ ";
 
         switch (targtAction)
         {
@@ -43,7 +43,7 @@ public class BChecker
                 ActionString += string.Format("Find and switch <b>off</b> <u>{0}</u>.", targetGameobject);
                 break;
             case eCheckAction.ECA_Object_on:
-                ActionString += string.Format("Find and make sure <u>{0}</u> is <b>working</b>.(Touch it to make it working with a greenlight.)", targetGameobject);
+                ActionString += string.Format("Find and make sure <u>{0}</u> is <b>working</b>.(Touch it to test it.  If a green light turns on, the detector is properly working)", targetGameobject);
                 break;
             case eCheckAction.ECA_Object_off:
                 ActionString += string.Format("Find and make sure <u>{0}</u> is <b>stop working</b>.", targetGameobject);

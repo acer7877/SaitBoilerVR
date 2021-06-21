@@ -60,7 +60,7 @@ public class StageManager : MonoBehaviour
             case EnumStage.Intrudce:
                 ControllerManager.instance.SetLeftHandModel("Notepad");
                 ControllerManager.instance.SetRightHandModel("Hand");
-                NotepadManager.instance.SetNotepadContext("Stage_Intuduction");
+                NotepadManager.instance.SetNotepadContext("Stage_Introduction");
                 WelcomeUI = GameObject.Find("WelcomeUI");
                 if (WelcomeUI != null) WelcomeUI.SetActive(false);
                 break;
