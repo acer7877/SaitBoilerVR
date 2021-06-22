@@ -63,6 +63,31 @@ public class NotepadManager : MonoBehaviour
 
         m_intruduction["CO-Detector"] = new NotepadData("CO-Detector", "Carbon monoxide (CO) is a colorless, odorless, and tasteless gas. This detector has a <b>green light</b> on when it's <u>safe</u> to work around. When the CO <u>exceeds the safe range</u>, the light will turn <b>red</b> and the detector will sound an alarm.");
         m_intruduction["BallValveBody1"] = new NotepadData("Ball Valve 1", "This is BallValue 1, it controls balabla....");
+        m_intruduction["BypassValve"] = new NotepadData("Bypass Valve", "[?1]");
+        m_intruduction["MainBoilerValve1"] = new NotepadData("Main Boiler Valve1", "[?2]");
+        m_intruduction["MainBoilerValve2"] = new NotepadData("Main Boiler Valve2", "[?3]");
+
+        m_intruduction["BoilerVent"] = new NotepadData("Boiler Vent", "[?4]");
+        m_intruduction["Boiler"] = new NotepadData("Boiler", "[?5]");
+        m_intruduction["DiaphragmTank"] = new NotepadData("Diaphragm Tank", "[?6]");
+        m_intruduction["HotWaterTank"] = new NotepadData("Hot Water Tank", "[?7]");
+
+        m_intruduction["IDHWCIValve"] = new NotepadData("Iddirect Domestic Hot Water Circulator Isolation Valve", "[?8]");
+        m_intruduction["CDWFIValve"] = new NotepadData("Cold Domestic Water Feed Isolation Valve", "[?9]");
+
+        m_intruduction["unknown1"] = new NotepadData("[?10]", "[?11]");
+        m_intruduction["PressureGauge"] = new NotepadData("Pressure Gauge", "[?12]");
+        m_intruduction["AirReleaseValve"] = new NotepadData("Air Release Valve", "[?13]");
+        m_intruduction["DiaphragmValve"] = new NotepadData("Diaphragm Valve", "[?14]");
+        m_intruduction["IDHWIValve_Return"] = new NotepadData("Indirect Domestic Hot Water Isolation Valve Return", "[?15]");
+        m_intruduction["GaugeIsolationValve"] = new NotepadData("Gauge Isolation Valves", "[?16]");
+        m_intruduction["IDHWIValve_Supply"] = new NotepadData("Indirect Domestic Hot Water Isolation Valve Supply", "[?17]");
+
+        m_intruduction["IHIValve1"] = new NotepadData("In-floor Heating Isolation Valve1", "[?18]");
+        m_intruduction["IHIValve2"] = new NotepadData("In-floor Heating Isolation Valve2", "[?19]");
+        m_intruduction["IHRIValve"] = new NotepadData("In-floor Heating Return Isolation Valve", "[?20]");
+        m_intruduction["IDHWIValve_Supply"] = new NotepadData("Indirect Domestic Hot Water Isolation Valve Supply", "[?21]");
+        m_intruduction["Manifold"] = new NotepadData("Manifold", "[?22]");
         //m_intruduction["TestCube"] = new NotepadData("TestCube just for test", "√ <sprite=0> hahaha <color=red>Red</color> default");
     }
     
