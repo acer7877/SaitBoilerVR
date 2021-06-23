@@ -120,7 +120,10 @@ public class StepManager : MonoBehaviour
         step.title = "Filling the system with water";
         step.description = "Confirm the Valves are configured prior to filling the heating system with water. (1/1)";
         step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("GaugeIsolationValve1", BChecker.eCheckAction.ECA_Valve_on));
         step.checklist.Add(new BChecker("MainBoilerValve1", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
         m_allSteps.Add(step);
 
 

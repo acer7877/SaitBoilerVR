@@ -21,11 +21,14 @@ public class BGameObject : MonoBehaviour
 
         VRTK_InteractObjectHighlighter highlighter = BAddComponent<VRTK_InteractObjectHighlighter>(gameObject);
         highlighter.touchHighlight = Color.green;
-        highlighter.touchHighlight = Color.red;
+        highlighter.grabHighlight = Color.red;
 
+        
         VRTK.Highlighters.BOutlineHightlight outlineDrawer = BAddComponent<VRTK.Highlighters.BOutlineHightlight>(gameObject);
+        //VRTK.Highlighters.VRTK_OutlineObjectCopyHighlighter outlineDrawer = BAddComponent<VRTK.Highlighters.VRTK_OutlineObjectCopyHighlighter>(gameObject);
         outlineDrawer.thickness = HighlightThickness;
-        outlineDrawer.enableSubmeshHighlight = true;
+        outlineDrawer.enableSubmeshHighlight = false;
+        
     }
 
     protected virtual void OnEnable()
