@@ -11,6 +11,8 @@ public class BGameObject : MonoBehaviour
     protected VRTK_InteractableObject VRTKIO;
     [Tooltip("Outline highlight will draw new mesh out of the base mesh. This is the distance between base and new-drawing mesh. The bigger for the distance, the thicker the outline is.")]
     public float HighlightThickness = 0.5f;
+    [Tooltip("Some Object has their name in their parent gameobject.")]
+    public int ParentCnt = 0;
     protected virtual void Awake()
     {
         //ObjectManager.instance.RegistGameObject(this.name, this.GetComponentInParent<GameObject>());
@@ -45,7 +47,14 @@ public class BGameObject : MonoBehaviour
     {
         //In intuducing mode, just show the intudaction onto the notepad
         if (StageManager.instance.CurrentStage == StageManager.EnumStage.Intrudce)
-            NotepadManager.instance.SetNotepadContext(this.name);
+        {
+            GameObject targetObject = this.gameObject;
+            for (int i = 0; i < ParentCnt; i++)
+            {
+                targetObject = transform.parent.gameObject;
+            }
+            NotepadManager.instance.SetNotepadContext(targetObject.name);
+        }
 
         //In Operating and Openword mode
         //if(StageManager.instance.CurrentStage == StageManager.EnumStage.Operatie)

@@ -54,7 +54,6 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["Stage_Operation"] = new NotepadData("Pre-startup (1/2)", "Put away flammable things\n<color=yellow>?</color> Bleach\n<color=yellow>?</color> can\n<color=yellow>?</color> whatever");
         m_intruduction["Stage_Operation_Finished"] = new NotepadData("Finished!", "Good job! You finished all the steps!<sprite=0><sprite=0><sprite=0><sprite=0>");
 
-
         m_intruduction["Cabinet"] = new NotepadData("Safety Cabinet", "This is a safety cabinet used to safely store flammable and combustible contents.");
 
         m_intruduction["Bleach"] = new NotepadData("Bleach", "Easy to catch fire, put it away from boiler!\n<color=red>!Danger!</color>");
@@ -72,7 +71,7 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["DiaphragmTank"] = new NotepadData("Diaphragm Tank", "[?6]");
         m_intruduction["HotWaterTank"] = new NotepadData("Hot Water Tank", "[?7]");
 
-        m_intruduction["IDHWCIValve"] = new NotepadData("Iddirect Domestic Hot Water Circulator Isolation Valve", "[?8]");
+        m_intruduction["IDHWCIValve"] = new NotepadData("Indirect Domestic Hot Water Circulator Isolation Valve", "[?8]");
         m_intruduction["CDWFIValve"] = new NotepadData("Cold Domestic Water Feed Isolation Valve", "[?9]");
 
         m_intruduction["unknown1"] = new NotepadData("[?10]", "[?11]");
@@ -87,7 +86,13 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["IHIValve2"] = new NotepadData("In-floor Heating Isolation Valve2", "[?19]");
         m_intruduction["IHRIValve"] = new NotepadData("In-floor Heating Return Isolation Valve", "[?20]");
         m_intruduction["IDHWIValve_Supply"] = new NotepadData("Indirect Domestic Hot Water Isolation Valve Supply", "[?21]");
-        m_intruduction["Manifold"] = new NotepadData("Manifold", "[?22]");
+
+
+        m_intruduction["Manifold Panel"] = new NotepadData("Manifold", "[?22]");
+        m_intruduction["Boiler"] = new NotepadData("Boiler", "[?23]");
+        m_intruduction["Exchanger"] = new NotepadData("Heat Exchanger", "[?24]");
+        m_intruduction["Vent"] = new NotepadData("Boiler Vent", "[?25]");
+        m_intruduction["Tank"] = new NotepadData("Diaphragm Tank", "[?26]");
         //m_intruduction["TestCube"] = new NotepadData("TestCube just for test", "√ <sprite=0> hahaha <color=red>Red</color> default");
     }
     
