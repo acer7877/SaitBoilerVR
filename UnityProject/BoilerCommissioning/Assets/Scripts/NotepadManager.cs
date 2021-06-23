@@ -57,7 +57,7 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["Cabinet"] = new NotepadData("Safety Cabinet", "This is a safety cabinet used to safely store flammable and combustible contents.");
 
         m_intruduction["Bleach"] = new NotepadData("Bleach", "<color=red>!Danger!</color>\nVolatile solvents such as bleach are corrosive and toxic. Mishandling of these chemicals can release harmful and sometimes lethal gases.\nProper storage procedures must be adhered to.");
-        m_intruduction["AerosolCan"] = new NotepadData("Aerosol Can", "<color=red>Danger!</color>\nAerosols contain potentially dangerous substances stored under pressure and are capable of exploding if in the presence of high temperatures.\nProper storage procedures must be adhered to.");
+        m_intruduction["AerosolCan (1)"] = new NotepadData("Aerosol Can", "<color=red>Danger!</color>\nAerosols contain potentially dangerous substances stored under pressure and are capable of exploding if in the presence of high temperatures.\nProper storage procedures must be adhered to.");
         m_intruduction["PaintCan"] = new NotepadData("Paint Can", "<color=red>Danger!</color>\nPaints are considered flammable and combustible materials.\nProper storage procedures must be adhered to.");
 
         m_intruduction["CO-Detector"] = new NotepadData("CO-Detector", "Carbon monoxide (CO) is a colorless, odorless, and tasteless gas. This detector has a <b>green light</b> on when it's <u>safe</u> to work around. When the CO <u>exceeds the safe range</u>, the light will turn <b>red</b> and the detector will sound an alarm.");
