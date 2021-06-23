@@ -14,11 +14,13 @@ public class BCabinet : BGameObject
     //Everything put into this Cabinet will disappare
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.LogError(">>>>>" + other.name);
+        Debug.LogError(">>>>>" + other.name);
         if(other.name == "Bleach" || other.name == "PaintCan" || other.name == "AerosolCan (1)")
         {
             GameObject target = other.gameObject;
+            target.GetComponent<BGrabable>().ShowIdle();
             target.SetActive(false);
+            Destroy(target.gameObject.GetComponent<BoxCollider>());
             ObjectManager.instance.Action(target.name, BChecker.eCheckAction.ECA_Object_put_away);
         }    
     }

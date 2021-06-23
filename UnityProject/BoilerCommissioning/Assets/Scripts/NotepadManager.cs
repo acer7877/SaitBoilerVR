@@ -104,6 +104,7 @@ public class NotepadManager : MonoBehaviour
     //set text to notepad on the left hand
     public void SetNotepadContext(string Title, string Context)
     {
+        //ControllerManager.instance.SetLeftHandModel("Notepad");
         GameObject NP_Title = GameObject.Find("Title_np");
         NP_Title.GetComponent<TMP_Text>().text = Title;
 
