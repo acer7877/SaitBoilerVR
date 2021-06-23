@@ -15,7 +15,7 @@ public class BCabinet : BGameObject
     private void OnTriggerEnter(Collider other)
     {
         //Debug.LogError(">>>>>" + other.name);
-        if(other.name == "Bleach" || other.name == "PaintCan" || other.name == "AerosolCan")
+        if(other.name == "Bleach" || other.name == "PaintCan" || other.name == "AerosolCan (1)")
         {
             GameObject target = other.gameObject;
             target.SetActive(false);
