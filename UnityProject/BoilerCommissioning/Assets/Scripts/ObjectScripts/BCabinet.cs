@@ -14,7 +14,7 @@ public class BCabinet : BGameObject
     //Everything put into this Cabinet will disappare
     private void OnTriggerEnter(Collider other)
     {
-        Debug.LogError(">>>>>" + other.name);
+        //Debug.LogError(">>>>>" + other.name);
         if(other.name == "Bleach" || other.name == "PaintCan" || other.name == "AerosolCan (1)")
         {
             GameObject target = other.gameObject;
