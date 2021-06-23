@@ -35,6 +35,7 @@ public class BValve : MonoBehaviour
         rotator.MaxLimitReached += valveOnByPlayer;
         rotator.MinLimitReached += valveOffByPlayer;
 
+
     }
 
     protected void OnDisable()
@@ -49,7 +50,7 @@ public class BValve : MonoBehaviour
         if (StageManager.instance.CurrentStage == StageManager.EnumStage.Operatie)
         {
             m_isOn = true;
-            ObjectManager.instance.Action(name, BChecker.eCheckAction.ECA_Valve_on);
+            ObjectManager.instance.Action(getParentName(), BChecker.eCheckAction.ECA_Valve_on);
         }
     }
 
@@ -58,7 +59,15 @@ public class BValve : MonoBehaviour
         if (StageManager.instance.CurrentStage == StageManager.EnumStage.Operatie)
         {
             m_isOn = false;
-            ObjectManager.instance.Action(name, BChecker.eCheckAction.ECA_Valve_off);
+            ObjectManager.instance.Action(getParentName(), BChecker.eCheckAction.ECA_Valve_off);
         }
+    }
+
+
+    string getParentName()
+    {
+        GameObject parentGameObject = transform.parent.gameObject;
+        //Debug.LogError(">>>>>>>>>>" + parentGameObject.name);
+        return parentGameObject.name;
     }
 }

@@ -43,7 +43,7 @@ public class BChecker
                 ActionString += string.Format("Find and switch <b>off</b> <u>{0}</u>.", targetGameobject);
                 break;
             case eCheckAction.ECA_Object_on:
-                ActionString += string.Format("Find and make sure <u>{0}</u> is <b>working</b>.(Touch it to test it.  If a green light turns on, the detector is properly working)", targetGameobject);
+                ActionString += string.Format("Find and make sure <u>{0}</u> is <b>working</b>.\n(Touch it to test it.  If a green light turns on, the detector is properly working)", targetGameobject);
                 break;
             case eCheckAction.ECA_Object_off:
                 ActionString += string.Format("Find and make sure <u>{0}</u> is <b>stop working</b>.", targetGameobject);
@@ -59,11 +59,12 @@ public class BChecker
 public class BStep
 {
     public string title;
+    public string description;
     public List<BChecker> checklist;
 
     public void PrintToNotpad()
     {
-        string context = "";
+        string context = description + "\n";
         foreach (BChecker c in checklist)
             context += c.PrintContext();
         NotepadManager.instance.SetNotepadContext(title, context);
@@ -96,7 +97,8 @@ public class StepManager : MonoBehaviour
         //Pre-startup procedure(1/2)
         //a.Observe area around the boiler to ensure there are no combustible materials, gases or other flammable liquids or vapors (paint cans, aerosol containers, solvents) (Removal of correct items is required to move onto the next step) 
         step = new BStep();
-        step.title = "Pre-startup procedure(1/2)";
+        step.title = "Pre-startup Procedure";
+        step.description = "Ensure the area around the boiler is clear of hazardous materials and that they are safely stored. (1/2)";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("Bleach", BChecker.eCheckAction.ECA_Object_put_away));
         step.checklist.Add(new BChecker("PaintCan", BChecker.eCheckAction.ECA_Object_put_away));
@@ -106,7 +108,8 @@ public class StepManager : MonoBehaviour
         //Pre-startup procedure(2/2)
         //b.Confirm location and function of the CO detector (test button to confirm batteries are present and fresh.  This step is required (maybe an option to replace batteries)) 
         step = new BStep();
-        step.title = "Pre-startup procedure(2/2)";
+        step.title = "Pre-startup Procedure";
+        step.description = "Confirm the location and function of the CO detector. (2/2)";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("CO-Detector", BChecker.eCheckAction.ECA_Object_on));
         m_allSteps.Add(step);
@@ -114,9 +117,10 @@ public class StepManager : MonoBehaviour
         //Filling the system with water(1/n)
         //?
         step = new BStep();
-        step.title = "Filling the system with water(1/1)";
+        step.title = "Filling the system with water";
+        step.description = "Confirm the Valves are configured prior to filling the heating system with water. (1/1)";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("BallValveHandle1", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("MainBoilerValve1", BChecker.eCheckAction.ECA_Valve_on));
         m_allSteps.Add(step);
 
 
