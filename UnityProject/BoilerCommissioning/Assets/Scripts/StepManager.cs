@@ -195,4 +195,37 @@ public class StepManager : MonoBehaviour
             SoundManager.instance.Play(sound);
     }
 
+    //To show bubble at current operatable objects
+    List<GameObject> HintList;
+    public Transform HintTransfor;
+    public void CreateHint()
+    {
+        if (HintList == null)
+            HintList = new List<GameObject>();
+
+        if (m_currentStep >= m_allSteps.Count)
+            return;
+
+        BStep currentStep = m_allSteps[m_currentStep];
+        foreach (BChecker c in currentStep.checklist)
+        {
+            if (c.isFinished) 
+                continue;
+
+            GameObject Target = GameObject.Find(c.targetGameobject);
+            if (Target == null)
+                continue;
+
+            HintList.Add(Instantiate(HintTransfor, Target.transform.position, Quaternion.identity).gameObject);
+        }
+    }
+    public void DeleteHint()
+    {
+        if (HintList == null || HintList.Count == 0)
+            return;
+        foreach (GameObject o in HintList)
+            Destroy(o);
+
+        HintList.Clear();
+    }
 }
