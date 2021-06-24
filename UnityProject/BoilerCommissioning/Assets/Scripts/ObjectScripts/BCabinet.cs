@@ -18,7 +18,9 @@ public class BCabinet : BGameObject
         if(other.name == "Bleach" || other.name == "PaintCan" || other.name == "AerosolCan (1)")
         {
             GameObject target = other.gameObject;
+            target.GetComponent<BGrabable>().ShowIdle();
             target.SetActive(false);
+            Destroy(target.gameObject.GetComponent<BoxCollider>());
             ObjectManager.instance.Action(target.name, BChecker.eCheckAction.ECA_Object_put_away);
         }    
     }

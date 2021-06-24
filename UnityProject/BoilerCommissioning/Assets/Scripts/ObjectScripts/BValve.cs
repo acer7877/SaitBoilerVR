@@ -32,16 +32,16 @@ public class BValve : MonoBehaviour
 
     protected void OnEnable()
     {
-        rotator.MaxLimitReached += valveOnByPlayer;
-        rotator.MinLimitReached += valveOffByPlayer;
+        rotator.MaxLimitReached += valveOffByPlayer;
+        rotator.MinLimitReached += valveOnByPlayer;
 
 
     }
 
     protected void OnDisable()
     {
-        rotator.MaxLimitReached -= valveOnByPlayer;
-        rotator.MinLimitReached -= valveOffByPlayer;
+        rotator.MaxLimitReached -= valveOffByPlayer;
+        rotator.MinLimitReached -= valveOnByPlayer;
     }
 
 
@@ -67,6 +67,7 @@ public class BValve : MonoBehaviour
     string getParentName()
     {
         GameObject parentGameObject = transform.parent.gameObject;
+        parentGameObject = parentGameObject.transform.parent.gameObject;
         //Debug.LogError(">>>>>>>>>>" + parentGameObject.name);
         return parentGameObject.name;
     }

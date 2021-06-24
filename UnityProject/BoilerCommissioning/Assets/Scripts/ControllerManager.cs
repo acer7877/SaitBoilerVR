@@ -66,7 +66,12 @@ public class ControllerManager : MonoBehaviour
 
     void initButtonSetup()
     {
+        //Reset scene
         LeftEvent.StartMenuPressed += ResetSence;
+        //Show Hint
+        LeftEvent.ButtonOnePressed += CreateHint;
+        LeftEvent.ButtonOneReleased += DeleteHint;
+
     }
     private void ResetSence(object sender, ControllerInteractionEventArgs e)
     {
@@ -74,4 +79,16 @@ public class ControllerManager : MonoBehaviour
         //SoundManager.instance.Play("resetScene");
 
     }
+
+    private void CreateHint(object sender, ControllerInteractionEventArgs e)
+    {
+        StepManager.instance.CreateHint();
+    }
+
+    private void DeleteHint(object sender, ControllerInteractionEventArgs e)
+    {
+        StepManager.instance.DeleteHint();
+    }
+
+
 }

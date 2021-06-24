@@ -6,16 +6,24 @@ using UnityEngine;
 public class BChecker
 {
     public string targetGameobject;     //Same name as Gameobjects' name.example: valve1
+    public string targetName;   //Used to show in the check list
     public eCheckAction targtAction;         //example: on/off
     public bool isFinished;
 
     public BChecker(string target, eCheckAction action)
     {
         targetGameobject = target;
+        targetName = target;
         targtAction = action;
         isFinished = false;
     }
-
+    public BChecker(string target, string name, eCheckAction action)
+    {
+        targetGameobject = target;
+        targetName = name;
+        targtAction = action;
+        isFinished = false;
+    }
     public enum eCheckAction
     {
         ECA_Valve_on,
@@ -34,19 +42,19 @@ public class BChecker
         switch (targtAction)
         {
             case eCheckAction.ECA_Object_put_away:
-                ActionString += string.Format("Put <u>{0}</u> away.", targetGameobject);
+                ActionString += string.Format("Put <u>{0}</u> away.", targetName);
                 break;
             case eCheckAction.ECA_Valve_on:
-                ActionString += string.Format("Find and switch <b>on</b> <u>{0}</u>.", targetGameobject);
+                ActionString += string.Format("Find and switch <b>on</b> <u>{0}</u>.", targetName);
                 break;
             case eCheckAction.ECA_Valve_off:
-                ActionString += string.Format("Find and switch <b>off</b> <u>{0}</u>.", targetGameobject);
+                ActionString += string.Format("Find and switch <b>off</b> <u>{0}</u>.", targetName);
                 break;
             case eCheckAction.ECA_Object_on:
-                ActionString += string.Format("Find and make sure <u>{0}</u> is <b>working</b>.\n(Touch it to test it.  If a green light turns on, the detector is properly working)", targetGameobject);
+                ActionString += string.Format("Find and make sure <u>{0}</u> is <b>working</b>.\n(Touch it to test it.  If a green light turns on, the detector is properly working)", targetName);
                 break;
             case eCheckAction.ECA_Object_off:
-                ActionString += string.Format("Find and make sure <u>{0}</u> is <b>stop working</b>.", targetGameobject);
+                ActionString += string.Format("Find and make sure <u>{0}</u> is <b>stop working</b>.", targetName);
                 break;
             default:
                 throw new System.Exception("unknow check action!" + targtAction.ToString());
@@ -101,8 +109,8 @@ public class StepManager : MonoBehaviour
         step.description = "Ensure the area around the boiler is clear of hazardous materials and that they are safely stored. (1/2)";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("Bleach", BChecker.eCheckAction.ECA_Object_put_away));
-        step.checklist.Add(new BChecker("PaintCan", BChecker.eCheckAction.ECA_Object_put_away));
-        step.checklist.Add(new BChecker("AerosolCan", BChecker.eCheckAction.ECA_Object_put_away));
+        step.checklist.Add(new BChecker("PaintCan", "Paint Can", BChecker.eCheckAction.ECA_Object_put_away));
+        step.checklist.Add(new BChecker("AerosolCan (1)", "Aerosol Can", BChecker.eCheckAction.ECA_Object_put_away));
         m_allSteps.Add(step);
 
         //Pre-startup procedure(2/2)
@@ -115,12 +123,15 @@ public class StepManager : MonoBehaviour
         m_allSteps.Add(step);
 
         //Filling the system with water(1/n)
-        //?
+        
         step = new BStep();
         step.title = "Filling the system with water";
         step.description = "Confirm the Valves are configured prior to filling the heating system with water. (1/1)";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("MainBoilerValve1", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("DiaphragmValve", "Diaphragm Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("GaugeIsolationValve1", "Gauge Isolation Valve 1", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("MainBoilerValve1", "Main Boiler Valve 1", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
         m_allSteps.Add(step);
 
 
@@ -184,4 +195,37 @@ public class StepManager : MonoBehaviour
             SoundManager.instance.Play(sound);
     }
 
+    //To show bubble at current operatable objects
+    List<GameObject> HintList;
+    public Transform HintTransfor;
+    public void CreateHint()
+    {
+        if (HintList == null)
+            HintList = new List<GameObject>();
+
+        if (m_currentStep >= m_allSteps.Count)
+            return;
+
+        BStep currentStep = m_allSteps[m_currentStep];
+        foreach (BChecker c in currentStep.checklist)
+        {
+            if (c.isFinished) 
+                continue;
+
+            GameObject Target = GameObject.Find(c.targetGameobject);
+            if (Target == null)
+                continue;
+
+            HintList.Add(Instantiate(HintTransfor, Target.transform.position, Quaternion.identity).gameObject);
+        }
+    }
+    public void DeleteHint()
+    {
+        if (HintList == null || HintList.Count == 0)
+            return;
+        foreach (GameObject o in HintList)
+            Destroy(o);
+
+        HintList.Clear();
+    }
 }

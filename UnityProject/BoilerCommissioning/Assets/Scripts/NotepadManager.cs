@@ -80,6 +80,7 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["DiaphragmValve"] = new NotepadData("Diaphragm Valve", "[?14]");
         m_intruduction["IDHWIValve_Return"] = new NotepadData("Indirect Domestic Hot Water Isolation Valve Return", "[?15]");
         m_intruduction["GaugeIsolationValve"] = new NotepadData("Gauge Isolation Valves", "[?16]");
+        m_intruduction["GaugeIsolationValve1"] = new NotepadData("Gauge Isolation Valves 1", "[?16]");
         m_intruduction["IDHWIValve_Supply"] = new NotepadData("Indirect Domestic Hot Water Isolation Valve Supply", "[?17]");
 
         m_intruduction["IHIValve1"] = new NotepadData("In-floor Heating Isolation Valve1", "[?18]");
@@ -103,6 +104,7 @@ public class NotepadManager : MonoBehaviour
     //set text to notepad on the left hand
     public void SetNotepadContext(string Title, string Context)
     {
+        //ControllerManager.instance.SetLeftHandModel("Notepad");
         GameObject NP_Title = GameObject.Find("Title_np");
         NP_Title.GetComponent<TMP_Text>().text = Title;
 
