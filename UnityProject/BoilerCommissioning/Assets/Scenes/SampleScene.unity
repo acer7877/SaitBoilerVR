@@ -4688,14 +4688,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658381231}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.7258, y: 1.019, z: 1.499}
+  m_LocalRotation: {x: -0.39537606, y: 0.58624035, z: 0.58624035, w: 0.39537606}
+  m_LocalPosition: {x: 1.6983144, y: 1.019, z: 1.4804435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1948066091}
   m_Father: {fileID: 223974227}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 112.006004}
 --- !u!114 &658381233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4708,7 +4708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63e8d5d7663f6f49a94909483ee6ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HighlightThickness: 0.1
+  HighlightThickness: 0.0001
   ParentCnt: 0
 --- !u!65 &658381234
 BoxCollider:
@@ -9112,9 +9112,9 @@ MonoBehaviour:
   angleLimits:
     minimum: 0
     maximum: 160
-  minMaxThresholdAngle: 1
+  minMaxThresholdAngle: 5
   restingAngle: 0
-  forceRestingAngleThreshold: 1
+  forceRestingAngleThreshold: 10
   angleTarget: 0
   isLocked: 0
   stepValueRange:
@@ -12427,15 +12427,15 @@ MonoBehaviour:
   angleLimits:
     minimum: -160
     maximum: 0
-  minMaxThresholdAngle: 1
+  minMaxThresholdAngle: 10
   restingAngle: 0
-  forceRestingAngleThreshold: 1
+  forceRestingAngleThreshold: 20
   angleTarget: 0
   isLocked: 0
   stepValueRange:
     minimum: 0
     maximum: 1
-  stepSize: 0.1
+  stepSize: 10
   useStepAsValue: 1
   snapToStep: 0
   snapForce: 10
