@@ -27,7 +27,6 @@ public class StageManager : MonoBehaviour
     }
 
     //For different stage
-    public enum EnumStage { Pause, Welcome, Intrudce, Operatie }
     public enum EnumStage { Pause, Welcome, Intrudce, Operatie, OpenWorld }
     EnumStage m_CurStage;
     public EnumStage CurrentStage
