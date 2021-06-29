@@ -107,7 +107,7 @@ public class StepManager : MonoBehaviour
         //a.Observe area around the boiler to ensure there are no combustible materials, gases or other flammable liquids or vapors (paint cans, aerosol containers, solvents) (Removal of correct items is required to move onto the next step) 
         step = new BStep();
         step.title = "Pre-startup Procedure";
-        step.description = "Ensure the area around the boiler is clear of hazardous materials and that they are safely stored. (1/2)";
+        step.description = "Ensure the area around the boiler is clear of hazardous materials and that they are safely stored. (1/2)\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("Bleach", BChecker.eCheckAction.ECA_Object_put_away));
         step.checklist.Add(new BChecker("PaintCan", "Paint Can", BChecker.eCheckAction.ECA_Object_put_away));
@@ -118,7 +118,7 @@ public class StepManager : MonoBehaviour
         //b.Confirm location and function of the CO detector (test button to confirm batteries are present and fresh.  This step is required (maybe an option to replace batteries)) 
         step = new BStep();
         step.title = "Pre-startup Procedure";
-        step.description = "Confirm the location and function of the CO detector. (2/2)";
+        step.description = "Confirm the location and function of the CO detector. (2/2)\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("CO-Detector", BChecker.eCheckAction.ECA_Object_on));
         m_allSteps.Add(step);
@@ -127,16 +127,87 @@ public class StepManager : MonoBehaviour
         
         step = new BStep();
         step.title = "Filling the system with water";
-        step.description = "Confirm the Valves are configured prior to filling the heating system with water. (1/1)";
+        step.description = "Begin priming the central heating system lines. (1/9)\n";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("DiaphragmValve", "Diaphragm Valve", BChecker.eCheckAction.ECA_Valve_on));
-        step.checklist.Add(new BChecker("GaugeIsolationValve1", "Gauge Isolation Valve 1", BChecker.eCheckAction.ECA_Valve_on));
-        step.checklist.Add(new BChecker("MainBoilerValve1", "Main Boiler Valve 1", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-4", "Diaphragm Expansion Tank Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-5", "Boiler Feed Station Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-6", "Boiler Feed Station Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-13", "Cold Domestic Inlet Valve (Supply)", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-3", "System Main Bypass Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-23", "Auto Air Vent Valve", BChecker.eCheckAction.ECA_Valve_on));
         //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
         m_allSteps.Add(step);
 
+        step = new BStep();
+        step.title = "Filling the system with water";
+        step.description = "Fill the boiler system. (2/9)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("BV-1", "Boiler Isolation Supply Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-2", "Boiler Isolation Return Valve", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
 
+        step = new BStep();
+        step.title = "Filling the system with water";
+        step.description = "Fill the Domestic Water Heating Tank. (3/9)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("BV-7", "DHW Zone, Return side, Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-8", "DHW Zone, Supply side, Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-9", "Indirect DHW Circulator Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
 
+        step = new BStep();
+        step.title = "Filling the system with water";
+        step.description = "Prime the In-floor Heating Manifold. (4/9)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("BV-18", "In-floor Heating Mixing Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-11", "In-floor Heating Isolation Valve (Supply)", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Filling the system with water";
+        step.description = "Prime Infloor heating line 1 and vent the air out of Air vent 3. (5/9)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("BV-21", "In-floor Heating Return Drain", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-17", "In-floor Heating 1 Valve", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Filling the system with water";
+        step.description = "Prime Infloor heating line 2 and vent the air out of Air vent 3. (6/9)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("BV-16", "In-floor Heating 2 Valve", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Filling the system with water";
+        step.description = "Prime Infloor heating line 3 and vent the air out of Air vent 3. (7/9)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("BV-15", "In-floor Heating 3 Valve", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Filling the system with water";
+        step.description = "Prime Infloor heating line 4 and vent the air out of Air vent 3. (8/9)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("BV-14", "In-floor Heating 4 Valve", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Filling the system with water";
+        step.description = "Open BV 12 and let the air escape Air Vent 3. Close BV - 21 and open BV - 10. (9/9)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("BV-10", "In-floor Heating 3-way Mixing Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-12", "In-floor Heating Isolation Valve (Return)", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-21", "In-floor Heating Return Drain", BChecker.eCheckAction.ECA_Valve_off));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
 
     }
 

@@ -61,7 +61,6 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["PaintCan"] = new NotepadData("Paint Can", "<color=red>Danger!</color>\n\nPaints are considered flammable and combustible materials.\n\nProper storage procedures must be adhered to.");
 
         m_intruduction["CO-Detector"] = new NotepadData("CO Detector", "Carbon monoxide (CO) is a colorless, odorless, and tasteless gas. If the detector's <color=green><b>green</color> light</b> is on, the work area is deemed <u>safe</u>. If the CO <u>exceeds the safe range</u>, the light will turn <color=red><b>red</b></color> and the detector will sound an alarm.");
-        m_intruduction["BallValveBody1"] = new NotepadData("Main Boiler Valve", "The main boiler valve is responsible for...");
         m_intruduction["BV-3"] = new NotepadData("System Main Bypass Isolation Valve", "This valve can be used to isolate the main Supply and Return piping during service.");
         m_intruduction["BV-1"] = new NotepadData("Boiler Isolation Supply Valve", "Allows the boiler to be isolated for service or during system filling.");
         m_intruduction["BV-2"] = new NotepadData("Boiler Isolation Return Valve", "Allows the boiler to be isolated for service or during system filling.");
@@ -81,7 +80,7 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["BV-7"] = new NotepadData("DHW Zone, Return side, Isolation Valve", "This valve (when used in conjunction with the DHW Zone, Supply side, Isolation Valve) can be used to isolate the heat exchanger coil inside of the DHW tank, or the circulator.");
         m_intruduction["BV-5"] = new NotepadData("Boiler Feed Station Isolation Valve", "These valves can be used to isolate the PRV for servicing or to shut off fresh water supply to the boiler.");
         m_intruduction["BV-6"] = new NotepadData("Boiler Feed Station Isolation Valve", "These valves can be used to isolate the PRV for servicing or to shut off fresh water supply to the boiler.");
-        m_intruduction["Ball Valve Body 1.003"] = new NotepadData("DHW Zone, Supply side, Isolation Valve", "This valve (when used in conjunction with the DHW Zone, Return side, Isolation Valve) can be used to isolate the heat exchanger coil inside of the DHW tank, or the circulator.");
+        m_intruduction["BV-8"] = new NotepadData("DHW Zone, Supply side, Isolation Valve", "This valve (when used in conjunction with the DHW Zone, Return side, Isolation Valve) can be used to isolate the heat exchanger coil inside of the DHW tank, or the circulator.");
 
         m_intruduction["BV-10"] = new NotepadData("In-floor Heating 3-way Mixing Isolation Valve", "This valve (when used in conjunction with other valves) can be used to isolate either the In-floor manifolds, or the In-floor heating circulator.");
         m_intruduction["BV-18"] = new NotepadData("In-floor Heating Mixing Isolation Valve", "This valve (when used in conjunction with other valves) can be used to isolate either the In-floor manifolds, or the In-floor heating circulator.");
