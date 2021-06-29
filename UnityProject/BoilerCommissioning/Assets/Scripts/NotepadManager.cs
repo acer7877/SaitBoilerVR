@@ -122,10 +122,10 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["Salmson NXL13-25P.002"] = new NotepadData("Domestic Hot Water Pump", "---");
         m_intruduction["Salmson NXL13-25P.003"] = new NotepadData("In-floor Heating Pump", "---");
 
-        m_intruduction["Spanners (PROP)"] = new NotepadData("Spanners", "---");
-        m_intruduction["Water Pump Pliers (PROP)"] = new NotepadData("Water Pump Pliers", "---");
-        m_intruduction["Flat Head (PROP)"] = new NotepadData("Flat Head Screwdriver", "---");
-        m_intruduction["Pipe Wrench (PROP)"] = new NotepadData("Pipe Wrench", "---");
+        m_intruduction["Spanners (PROP)"] = new NotepadData("Spanners", "Used to tighten the flange bolts on the pumps if they are leaking.");
+        m_intruduction["Water Pump Pliers (PROP)"] = new NotepadData("Water Pump Pliers", "Used to tighten unions or bolts on the pump flanges if they are leaking, though the open-end wrench would be more appropriate for removing bolts.");
+        m_intruduction["Flat Head (PROP)"] = new NotepadData("Flat Head Screwdriver", "Used to remove the boiler front cover bolts which are often \"slotted\".");
+        m_intruduction["Pipe Wrench (PROP)"] = new NotepadData("Pipe Wrench", "Used to solve any gas leaks on the gas line specifically.");
 
         //m_intruduction["TestCube"] = new NotepadData("TestCube just for test", "√ <sprite=0> hahaha <color=red>Red</color> default");
     }
