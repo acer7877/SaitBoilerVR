@@ -209,6 +209,41 @@ public class StepManager : MonoBehaviour
         //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
         m_allSteps.Add(step);
 
+        step = new BStep();
+        step.title = "Firing the boiler system.";
+        step.description = "Repair any leaking pipes using the appropriate tool. (1/4)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("BV-10", "In-floor Heating 3-way Mixing Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Firing the boiler system.";
+        step.description = "Boiler to Exchanger water heating. (2/4)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("AquaStat", "Locate the AquaStat.", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("AquaStat", "Set the tempurature to 140°F.", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("BV-20", "Open the Gas Valve.", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Firing the boiler system.";
+        step.description = "In-floor heating startup. (3/4)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("AquaStat", "Set tempurature on thermostat to [---] to activate In-floor Heating Pump 3.\nIn-floor heating will continuously run until the tempurature set has been reached.", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Firing the boiler system.";
+        step.description = "Open the cover to the boiler to enure a neutral and stable flame has been initiated. (4/4)\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("AquaStat", "Remove cover to the boiler.", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("AquaStat", "Observe Flame.", BChecker.eCheckAction.ECA_Valve_on));
+        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
+
     }
 
     public void StartStepFromBeginning()

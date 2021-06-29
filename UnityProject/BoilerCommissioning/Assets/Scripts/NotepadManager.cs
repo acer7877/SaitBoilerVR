@@ -117,6 +117,16 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["Exchanger"] = new NotepadData("Heat Exchanger", "This uses the heat generated from the boiler system to \"exchange\" heat to be circulated through the heating system.");
         m_intruduction["Vent"] = new NotepadData("Boiler Vent", "Facilitates the ventilation of combustion gases.");
         m_intruduction["Tank"] = new NotepadData("Diaphragm Expansion Tank", "Manages the pressure of the fluid in the heating system. Prevents the compression of air in the event there is mixing within the line.");
+
+        m_intruduction["Salmson NXL13-25P.001"] = new NotepadData("Main System Pump", "---");
+        m_intruduction["Salmson NXL13-25P.002"] = new NotepadData("Domestic Hot Water Pump", "---");
+        m_intruduction["Salmson NXL13-25P.003"] = new NotepadData("In-floor Heating Pump", "---");
+
+        m_intruduction["Spanners (PROP)"] = new NotepadData("Spanners", "---");
+        m_intruduction["Water Pump Pliers (PROP)"] = new NotepadData("Water Pump Pliers", "---");
+        m_intruduction["Flat Head (PROP)"] = new NotepadData("Flat Head Screwdriver", "---");
+        m_intruduction["Pipe Wrench (PROP)"] = new NotepadData("Pipe Wrench", "---");
+
         //m_intruduction["TestCube"] = new NotepadData("TestCube just for test", "√ <sprite=0> hahaha <color=red>Red</color> default");
     }
     
