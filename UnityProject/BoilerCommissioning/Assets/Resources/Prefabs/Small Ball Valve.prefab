@@ -239,7 +239,7 @@ MonoBehaviour:
     maximum: 0
   minMaxThresholdAngle: 10
   restingAngle: 0
-  forceRestingAngleThreshold: 1
+  forceRestingAngleThreshold: 20
   angleTarget: 0
   isLocked: 0
   stepValueRange:
@@ -247,7 +247,7 @@ MonoBehaviour:
     maximum: 1
   stepSize: 0.1
   useStepAsValue: 1
-  snapToStep: 0
+  snapToStep: 1
   snapForce: 10
   precisionGrab: 1
   detachDistance: 1

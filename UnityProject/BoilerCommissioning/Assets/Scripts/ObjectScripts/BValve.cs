@@ -52,6 +52,12 @@ public class BValve : MonoBehaviour
             m_isOn = true;
             ObjectManager.instance.Action(getParentName(), BChecker.eCheckAction.ECA_Valve_on);
         }
+
+        if (StageManager.instance.CurrentStage == StageManager.EnumStage.OpenWorld)
+        {
+            m_isOn = true;
+            OpenWorldMgr.instance.OperateValve(getParentName(), m_isOn);
+        }
     }
 
     void valveOffByPlayer(object sender, ControllableEventArgs e)
@@ -60,6 +66,12 @@ public class BValve : MonoBehaviour
         {
             m_isOn = false;
             ObjectManager.instance.Action(getParentName(), BChecker.eCheckAction.ECA_Valve_off);
+        }
+
+        if (StageManager.instance.CurrentStage == StageManager.EnumStage.OpenWorld)
+        {
+            m_isOn = false;
+            OpenWorldMgr.instance.OperateValve(getParentName(), m_isOn);
         }
     }
 

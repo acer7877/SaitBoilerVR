@@ -3383,6 +3383,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 6535130779456213475, guid: 7602903add5b68f4488f80e2b7c7ba9d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535130779456213475, guid: 7602903add5b68f4488f80e2b7c7ba9d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535130779456213475, guid: 7602903add5b68f4488f80e2b7c7ba9d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 6542550286959551573, guid: 7602903add5b68f4488f80e2b7c7ba9d,
         type: 3}
       propertyPath: m_Name
@@ -3483,9 +3498,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65238569}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1979079608}
+        m_MethodName: GoOpenWorld
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7429,7 +7444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1099235825
 Transform:
   m_ObjectHideFlags: 0
@@ -10954,7 +10969,7 @@ GameObject:
   - component: {fileID: 1565252092}
   - component: {fileID: 1565252091}
   m_Layer: 0
-  m_Name: TestCube
+  m_Name: '>>>TestCube>>>'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10968,8 +10983,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565252084}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4615045, y: 0.86036974, z: 1.3381929}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.1358, y: 0.2525, z: 5.0586}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 223974227}
   m_RootOrder: 9
@@ -14300,7 +14315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1937637825
 Transform:
   m_ObjectHideFlags: 0
@@ -14889,6 +14904,7 @@ GameObject:
   - component: {fileID: 1979079605}
   - component: {fileID: 1979079610}
   - component: {fileID: 1979079611}
+  - component: {fileID: 1979079612}
   m_Layer: 0
   m_Name: ManagerCenter
   m_TagString: Untagged
@@ -15024,6 +15040,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BAudioSource: {fileID: 2072069594}
+--- !u!114 &1979079612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979079602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ea5124a1979df459eed47fdb8bef03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterAmModel: {fileID: 7805493683512706349, guid: d68bc635b2a9eec4f80f2843637a1bcc,
+    type: 3}
+  OpenWorldFrame: 0.5
+  DefaultMat: {fileID: 2100000, guid: 094188839891af1418a1772925e6964e, type: 2}
 --- !u!1001 &1997033256
 PrefabInstance:
   m_ObjectHideFlags: 0
