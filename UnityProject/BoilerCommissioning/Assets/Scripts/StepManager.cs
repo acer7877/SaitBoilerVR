@@ -51,7 +51,8 @@ public class BChecker
                 ActionString += string.Format("Find and switch <b>off</b> <u>{0}</u>.", targetName);
                 break;
             case eCheckAction.ECA_Object_on:
-                ActionString += string.Format("Find and make sure <u>{0}</u> is <b>working</b>.\n(Touch it to test it.  If a <color=green><b>green<b></color> light turns on, the detector is properly working)", targetName);
+                ActionString += string.Format("Find and make sure <u>{0}</u> is <b>working</b>.\n(Touch it to test it.  If a <color=green><b>green<b>" +
+                    "</color> light turns on, the detector is properly working)", targetName);
                 break;
             case eCheckAction.ECA_Object_off:
                 ActionString += string.Format("Find and make sure <u>{0}</u> is <b>stop working</b>.", targetName);
