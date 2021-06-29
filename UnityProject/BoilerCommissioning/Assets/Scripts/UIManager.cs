@@ -33,7 +33,12 @@ public class UIManager : MonoBehaviour
     //open world button press
     public void GoOpenWorld()
     {
-        throw new System.Exception("Unfinished function");
+        StageManager.instance.SetStage(StageManager.EnumStage.OpenWorld);
     }
 
+    //Go next step in operation mode
+    public void NextStep()
+    {
+        StepManager.instance.nextStep();
+    }
 }

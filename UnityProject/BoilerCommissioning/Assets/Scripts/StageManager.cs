@@ -27,7 +27,7 @@ public class StageManager : MonoBehaviour
     }
 
     //For different stage
-    public enum EnumStage { Pause, Welcome, Intrudce, Operatie }
+    public enum EnumStage { Pause, Welcome, Intrudce, Operatie, OpenWorld }
     EnumStage m_CurStage;
     public EnumStage CurrentStage
     {
@@ -63,6 +63,15 @@ public class StageManager : MonoBehaviour
                 NotepadManager.instance.SetNotepadContext("Stage_Introduction");
                 WelcomeUI = GameObject.Find("WelcomeUI");
                 if (WelcomeUI != null) WelcomeUI.SetActive(false);
+                break;
+            case EnumStage.OpenWorld:
+                ControllerManager.instance.SetLeftHandModel("Hand");
+                ControllerManager.instance.SetRightHandModel("Hand");
+                WelcomeUI = GameObject.Find("WelcomeUI");
+                if (WelcomeUI != null) 
+                    WelcomeUI.SetActive(false);
+
+                OpenWorldMgr.instance.InitOpenWrold();
                 break;
             default://including Welcome and unknow situation
                 ControllerManager.instance.SetLeftHandModel("Hand");

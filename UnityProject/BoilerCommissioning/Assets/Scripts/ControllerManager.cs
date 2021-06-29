@@ -83,6 +83,10 @@ public class ControllerManager : MonoBehaviour
     private void CreateHint(object sender, ControllerInteractionEventArgs e)
     {
         StepManager.instance.CreateHint();
+
+        //for test
+        //OpenWorldMgr.instance.OperateValve("BV-13", true);
+        //BoilerLogic.Helper.DrawLine(new Vector3(0, 0, 0), new Vector3(10, 10, 10));
     }
 
     private void DeleteHint(object sender, ControllerInteractionEventArgs e)
