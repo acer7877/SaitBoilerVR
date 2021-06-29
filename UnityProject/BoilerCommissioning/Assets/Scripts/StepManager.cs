@@ -92,6 +92,7 @@ public class StepManager : MonoBehaviour
         initAllSteps();
     }
 
+    public UnityEngine.UI.Button NextStepBtn;
 
     //operation steps
     List<BStep> m_allSteps;
@@ -250,6 +251,8 @@ public class StepManager : MonoBehaviour
     {
         m_currentStep = 0;
         m_allSteps[0].PrintToNotpad();
+        NextStepBtn.gameObject.SetActive(true);
+        NextStepBtn.enabled = false;
     }
     public void Action(string name, BChecker.eCheckAction type)
     {
@@ -279,8 +282,7 @@ public class StepManager : MonoBehaviour
         {
             if (isAllFinished)//all steps are finished and go next
             {
-                m_currentStep += 1;
-                if (m_currentStep == m_allSteps.Count) //all steps are finished
+                if (m_currentStep +1 == m_allSteps.Count) //all steps are finished
                 {
                     NotepadManager.instance.SetNotepadContext("Stage_Operation_Finished");
                     sound = "finish";
@@ -289,6 +291,7 @@ public class StepManager : MonoBehaviour
                 {
                     m_allSteps[m_currentStep].PrintToNotpad();
                     sound = "step";
+                    NextStepBtn.enabled = true;
                 }
             }
             else//show the current step
@@ -300,6 +303,13 @@ public class StepManager : MonoBehaviour
 
         if (sound != null)
             SoundManager.instance.Play(sound);
+    }
+
+    public void nextStep()
+    {
+        m_currentStep += 1;
+        m_allSteps[m_currentStep].PrintToNotpad();
+        NextStepBtn.enabled = false;
     }
 
     //To show bubble at current operatable objects

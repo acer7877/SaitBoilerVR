@@ -36,4 +36,9 @@ public class UIManager : MonoBehaviour
         StageManager.instance.SetStage(StageManager.EnumStage.OpenWorld);
     }
 
+    //Go next step in operation mode
+    public void NextStep()
+    {
+        StepManager.instance.nextStep();
+    }
 }
