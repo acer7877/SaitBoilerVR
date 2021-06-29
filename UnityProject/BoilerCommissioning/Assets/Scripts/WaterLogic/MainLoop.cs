@@ -58,16 +58,16 @@ namespace BoilerLogic
 
             n = new Pipe("Pipe 28.001+Elbow.020");
             n.m_Connected.Add("Tee.008");
-            n.m_Connected.Add("BV-6");
+            n.m_Connected.Add("BV-6+");
             m_allCom.Add(n.m_name, n);
 
-            n = new Valve("BV-6");
+            n = new Valve("BV-6+");
             n.m_Connected.Add("Pipe 28.001+Elbow.020");
             n.m_Connected.Add("BV-5+Pipe 29");
             m_allCom.Add(n.m_name, n);
 
             n = new Valve("BV-5+Pipe 29");
-            n.m_Connected.Add("BV-6");
+            n.m_Connected.Add("BV-6+");
             n.m_Connected.Add("Elbow.013+Pipe 28+Elbow.014+Pipe 27");
             m_allCom.Add(n.m_name, n);
 

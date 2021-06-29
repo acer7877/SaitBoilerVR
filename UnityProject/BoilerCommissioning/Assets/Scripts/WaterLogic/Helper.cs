@@ -96,7 +96,7 @@ namespace BoilerLogic
         {
             foreach (string nameString in ml.m_allCom.Keys)
             {
-                if (nameString.Contains(targetName))
+                if (nameString.Contains(targetName+"+"))
                 {
                     Valve v = ml.m_allCom[nameString] as Valve;
                     if (v != null)
@@ -126,7 +126,10 @@ namespace BoilerLogic
             GameObject go = GameObject.Find(names[0]);
             if (go == null)
                 return new Vector3(0, 0, 0);
-            return go.GetComponent<Renderer>().bounds.center;
+            Renderer r = go.GetComponent<Renderer>();
+            if (r == null)
+                r = go.GetComponentInChildren<Renderer>();
+            return r.bounds.center;
         }
 
     }

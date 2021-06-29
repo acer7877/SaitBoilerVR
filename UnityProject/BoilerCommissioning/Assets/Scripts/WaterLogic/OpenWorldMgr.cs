@@ -26,6 +26,9 @@ public class OpenWorldMgr : MonoBehaviour
     public float OpenWorldFrame = 0.5f;
     void Update()
     {
+        if (StageManager.instance.CurrentStage != StageManager.EnumStage.OpenWorld)
+            return;
+
         //animations for water move
         if (waterAnimations != null)
         {
@@ -44,7 +47,8 @@ public class OpenWorldMgr : MonoBehaviour
         if (timer < OpenWorldFrame)
             return;
         timer -= OpenWorldFrame;
-        ml.Update();
+        
+        ml.Update(10);
         Helper.DrawHasWater(ml);
 
     }
