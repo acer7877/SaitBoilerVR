@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 
 class NotepadData
 {
@@ -99,6 +98,7 @@ public class NotepadManager : MonoBehaviour
 
         m_intruduction["S Check Valve"] = new NotepadData("Boiler Feed Station Supply Check Valve", "This check valve reduces pressure and prevents the backflow of water.");
         m_intruduction["L Check Valve"] = new NotepadData("Boiler Return Check Valve", "This valve prevents the backflow of hot water.");
+        m_intruduction["Air Seperator"] = new NotepadData("Air Separator", "Air separators expell air quickly and efficiently from closed loop heating and cooling systems.");
 
         m_intruduction["GV-1"] = new NotepadData("Drain", "This is a drain.");
         m_intruduction["GV-2"] = new NotepadData("Future Take-off Return", "Future expansion return zone.");
@@ -123,9 +123,18 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["Salmson NXL13-25P.003"] = new NotepadData("In-floor Heating Pump", "---");
 
         m_intruduction["Spanners (PROP)"] = new NotepadData("Spanners", "Used to tighten the flange bolts on the pumps if they are leaking.");
-        m_intruduction["Water Pump Pliers (PROP)"] = new NotepadData("Water Pump Pliers", "Used to tighten unions or bolts on the pump flanges if they are leaking, though the open-end wrench would be more appropriate for removing bolts.");
+        m_intruduction["Water Pump Pliers (PROP)"] = new NotepadData("Adjustable Water Pump Pliers", "Used to tighten unions or bolts on the pump flanges if they are leaking, though the open-end wrench would be more appropriate for removing bolts.");
         m_intruduction["Flat Head (PROP)"] = new NotepadData("Flat Head Screwdriver", "Used to remove the boiler front cover bolts which are often \"slotted\".");
-        m_intruduction["Pipe Wrench (PROP)"] = new NotepadData("Pipe Wrench", "Used to solve any gas leaks on the gas line specifically.");
+        m_intruduction["Pipe Wrench (PROP)"] = new NotepadData("2x12\" Pipe Wrench", "Used to solve any gas leaks on the gas line specifically.");
+
+        m_intruduction["LWCO"] = new NotepadData("Low Water Cut-off", "---");
+        m_intruduction["Flow Switch"] = new NotepadData("Flow Switch", "---");
+        m_intruduction["AquaStat"] = new NotepadData("AquaStat", "---");
+        m_intruduction["Indicator (1)"] = new NotepadData("Boiler Return Temperature Indicator", "---");
+        m_intruduction["Indicator"] = new NotepadData("Pressure Indicator", "---");
+        m_intruduction["Indicator (1)"] = new NotepadData("Boiler Return Temperature Indicator", "---");
+        m_intruduction["Indicator (2)"] = new NotepadData("Boiler Supply Temperature Indicator", "---");
+
 
         //m_intruduction["TestCube"] = new NotepadData("TestCube just for test", "√ <sprite=0> hahaha <color=red>Red</color> default");
     }
