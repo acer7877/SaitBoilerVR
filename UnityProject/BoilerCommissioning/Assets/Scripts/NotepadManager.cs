@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 
 class NotepadData
 {
@@ -99,6 +98,7 @@ public class NotepadManager : MonoBehaviour
 
         m_intruduction["S Check Valve"] = new NotepadData("Boiler Feed Station Supply Check Valve", "This check valve reduces pressure and prevents the backflow of water.");
         m_intruduction["L Check Valve"] = new NotepadData("Boiler Return Check Valve", "This valve prevents the backflow of hot water.");
+        m_intruduction["Air Seperator"] = new NotepadData("Air Separator", "Air separators expell air quickly and efficiently from closed loop heating and cooling systems.");
 
         m_intruduction["GV-1"] = new NotepadData("Drain", "This is a drain.");
         m_intruduction["GV-2"] = new NotepadData("Future Take-off Return", "Future expansion return zone.");
@@ -118,14 +118,24 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["Vent"] = new NotepadData("Boiler Vent", "Facilitates the ventilation of combustion gases.");
         m_intruduction["Tank"] = new NotepadData("Diaphragm Expansion Tank", "Manages the pressure of the fluid in the heating system. Prevents the compression of air in the event there is mixing within the line.");
 
-        m_intruduction["Salmson NXL13-25P.001"] = new NotepadData("Main System Pump", "---");
-        m_intruduction["Salmson NXL13-25P.002"] = new NotepadData("Domestic Hot Water Pump", "---");
-        m_intruduction["Salmson NXL13-25P.003"] = new NotepadData("In-floor Heating Pump", "---");
+        m_intruduction["Salmson NXL13-25P.001"] = new NotepadData("Primary Circulator", "This is the \"main\" circulator that moves the medium (water) through the Boilers heat Exchanger and through the main piping of the system.");
+        m_intruduction["Salmson NXL13-25P.002"] = new NotepadData("Domestic Hot Water Circulator", "This circulator comes on when there is a \"call for heat\" from the <b>Aquastat</b> located on the DHW tank.The circulator then moves heated water through the coil located in the tank to <b>exchange</b> the heat from the boiler water to the Domestic water.");
+        m_intruduction["Salmson NXL13-25P.003"] = new NotepadData("In-floor Zone Circulator", "This Circulator will come on when the room thermostat <b>calls for heat</b>. The circulator will then move the \"mixed\" temperature water from the mixing valve and circulate it through the in-floor manifolds and in-floor piping to give off it's heat to the floor.") ;
 
         m_intruduction["Spanners (PROP)"] = new NotepadData("Spanners", "Used to tighten the flange bolts on the pumps if they are leaking.");
-        m_intruduction["Water Pump Pliers (PROP)"] = new NotepadData("Water Pump Pliers", "Used to tighten unions or bolts on the pump flanges if they are leaking, though the open-end wrench would be more appropriate for removing bolts.");
+        m_intruduction["Water Pump Pliers (PROP)"] = new NotepadData("Adjustable Water Pump Pliers", "Used to tighten unions or bolts on the pump flanges if they are leaking, though the open-end wrench would be more appropriate for removing bolts.");
         m_intruduction["Flat Head (PROP)"] = new NotepadData("Flat Head Screwdriver", "Used to remove the boiler front cover bolts which are often \"slotted\".");
-        m_intruduction["Pipe Wrench (PROP)"] = new NotepadData("Pipe Wrench", "Used to solve any gas leaks on the gas line specifically.");
+        m_intruduction["Pipe Wrench (PROP)"] = new NotepadData("2x12\" Pipe Wrench", "Used to solve any gas leaks on the gas line specifically.");
+
+        m_intruduction["LWCO"] = new NotepadData("Low Water Cut-off", "This is a safety feature that proves via an electrical probe that there is water present at a <b>safe operating level</b> (above the highest water level of the boiler). Should the Water level drop below this point the LWCO will \"Cut off\" the power to the boiler.");
+        m_intruduction["Flow Switch"] = new NotepadData("Flow Sensing Device", "This device will sense whether or not there is flow through the boiler heat exchanger and then <b>close the circuit</b> to the main gas valve indicating it is safe to fire the burners.");
+        m_intruduction["AquaStat"] = new NotepadData("AquaStat", "This switching device measures the average temperature of the domestic water inside the DHW tank and will <b>switch on or close the circuit</b> to tell the DHW circulator to bring heated water to the tank and bring it up to the desired or set DHW temperature (usually about 140 F).");
+        m_intruduction["Thermostat"] = new NotepadData("Room Thermostat", "This switching device is (in this case) reading the temperature of the floor slab via a probe placed in the concrete and will <b>switch on or close the circuit</b> to turn on the <b>In - floor Circulator</b> to bring heated water to the in-floor loops.");
+        m_intruduction["Indicator"] = new NotepadData("Boiler Feed Pressure Gauge", "This pressure gauge shows the pressure that we \"select\" when we set the pressure at the PRV (Pressure Reducing Valve).");
+        m_intruduction["Indicator (1)"] = new NotepadData("Boiler Return Thermometer", "This temperature gauge (when combined with the Boiler Supply Thermometer) helps us understand the amount of heat we have lost in the system as well as the heat terminal units.");
+        m_intruduction["Indicator (2)"] = new NotepadData("Boiler Supply Thermometer", "This temperature gauge should reflect the <b>cut-out</b> temperature that we have set the boiler to. It indicates the hottest temperature in the system, or our \"Supply temperature\".");
+        m_intruduction["3 way Mixing Valve"] = new NotepadData("In-floor Zone Mixing Valve", "This device will mix cooler return water coming back from the infloor return manifold and blend it with the hotter supply water to <b>mix</b> it to an appropriate temperature for the infloor heating loops (usually under 130 F).");
+
 
         //m_intruduction["TestCube"] = new NotepadData("TestCube just for test", "√ <sprite=0> hahaha <color=red>Red</color> default");
     }
