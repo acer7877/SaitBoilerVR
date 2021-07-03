@@ -9,6 +9,7 @@ public class BChecker
     public string targetName;   //Used to show in the check list
     public eCheckAction targtAction;         //example: on/off
     public bool isFinished;
+    //public int arg; 
 
     public BChecker(string target, eCheckAction action)
     {
@@ -31,6 +32,7 @@ public class BChecker
         ECA_Object_put_away,
         ECA_Object_on,
         ECA_Object_off,
+        ECA_Indicator_Num,
     }
 
     //make context string for the notepad

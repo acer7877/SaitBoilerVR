@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16242434, g: 0.4716981, b: 0.3701808, a: 0.8784314}
+  m_Color: {r: 0.36494306, g: 0.5566038, b: 0.41732132, a: 0.4745098}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
