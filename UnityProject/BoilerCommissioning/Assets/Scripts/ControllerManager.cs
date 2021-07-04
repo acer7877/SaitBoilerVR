@@ -101,9 +101,12 @@ public class ControllerManager : MonoBehaviour
         //Show Hint
         LeftEvent.ButtonOnePressed += CreateHint;
         LeftEvent.ButtonOneReleased += DeleteHint;
+
+        LeftEvent.ButtonTwoPressed += ShowRightHand_MagnifyGlass;
+        LeftEvent.ButtonTwoReleased += ShowRightHand_Hand;
         //Right hand change
-        RightEvent.TriggerPressed += ShowRightHand_MagnifyGlass;
-        RightEvent.TriggerReleased += ShowRightHand_Hand;
+        //RightEvent.TriggerPressed += ShowRightHand_MagnifyGlass;
+        //RightEvent.TriggerReleased += ShowRightHand_Hand;
 
     }
     private void ResetSence(object sender, ControllerInteractionEventArgs e)

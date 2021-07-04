@@ -9,7 +9,7 @@ public class BChecker
     public string targetName;   //Used to show in the check list
     public eCheckAction targtAction;         //example: on/off
     public bool isFinished;
-    //public int arg; 
+    public int arg;     //some step need a arguement
 
     public BChecker(string target, eCheckAction action)
     {
@@ -24,6 +24,14 @@ public class BChecker
         targetName = name;
         targtAction = action;
         isFinished = false;
+    }
+    public BChecker(string target, string name, eCheckAction action, int arg_input)
+    {
+        targetGameobject = target;
+        targetName = name;
+        targtAction = action;
+        isFinished = false;
+        arg = arg_input;
     }
     public enum eCheckAction
     {
@@ -58,6 +66,9 @@ public class BChecker
                 break;
             case eCheckAction.ECA_Object_off:
                 ActionString += string.Format("Find and make sure <u>{0}</u> is <b>stop working</b>.", targetName);
+                break;
+            case eCheckAction.ECA_Indicator_Num:
+                ActionString += string.Format("Check <u>{0}</u> and make sure the degree is <b>{1}</b> PSI", targetName, arg);
                 break;
             default:
                 throw new System.Exception("unknow check action!" + targtAction.ToString());
@@ -104,6 +115,14 @@ public class StepManager : MonoBehaviour
         m_currentStep = 0;
         m_allSteps = new List<BStep>();
         BStep step;
+
+
+        step = new BStep();
+        step.title = "Test";
+        step.description = "this is for testing of new function\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("Indicator (2)", "Idicator XXX",BChecker.eCheckAction.ECA_Indicator_Num, 1000));
+        m_allSteps.Add(step);
 
 
         //Pre-startup procedure(1/2)
@@ -305,6 +324,23 @@ public class StepManager : MonoBehaviour
 
         if (sound != null)
             SoundManager.instance.Play(sound);
+    }
+    public BChecker GetCheckerByNameFromCurStep(string name)
+    {
+        if (m_currentStep >= m_allSteps.Count)
+            return null;
+        BStep currentStep = m_allSteps[m_currentStep];
+        foreach (BChecker bc in currentStep.checklist)
+        {
+            if (bc.targetGameobject == name)
+            {
+                if (!bc.isFinished)
+                    return bc;
+                else
+                    return null;
+            }
+        }
+        return null;
     }
 
     public void nextStep()

@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HighlightThickness: 0.5
-  ParentCnt: 0
+  ParentCnt: 1
   m_screen: {fileID: 6471337807835534866}
 --- !u!1001 &7808688269471274270
 PrefabInstance:
