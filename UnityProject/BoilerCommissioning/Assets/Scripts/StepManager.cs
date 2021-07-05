@@ -41,6 +41,7 @@ public class BChecker
         ECA_Object_on,
         ECA_Object_off,
         ECA_Indicator_Num,
+        ECA_AquaStat_Num,
     }
 
     //make context string for the notepad
@@ -69,6 +70,9 @@ public class BChecker
                 break;
             case eCheckAction.ECA_Indicator_Num:
                 ActionString += string.Format("Check <u>{0}</u> and make sure the degree is <b>{1}</b> PSI", targetName, arg);
+                break;
+            case eCheckAction.ECA_AquaStat_Num:
+                ActionString += string.Format("Find <u>{0}</u> and change the degree to <b>{1}</b> PSI", targetName, arg);
                 break;
             default:
                 throw new System.Exception("unknow check action!" + targtAction.ToString());
@@ -116,9 +120,15 @@ public class StepManager : MonoBehaviour
         m_allSteps = new List<BStep>();
         BStep step;
 
+        step = new BStep();
+        step.title = "Test_Aquastat";
+        step.description = "this is for testing of new function\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_AquaStat_Num, 50));
+        m_allSteps.Add(step);
 
         step = new BStep();
-        step.title = "Test";
+        step.title = "Test_indicator";
         step.description = "this is for testing of new function\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("Indicator (2)", "Idicator XXX",BChecker.eCheckAction.ECA_Indicator_Num, 1000));

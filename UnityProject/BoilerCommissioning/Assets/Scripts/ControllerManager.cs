@@ -40,6 +40,7 @@ public class ControllerManager : MonoBehaviour
         }
         else
         {
+            if(LeftControllerCurrentModel == "Hand" || LeftControllerCurrentModel=="Notepad")
             LCM_tmp = LeftControllerCurrentModel;
             SetLeftHandModel(Model);
         }
