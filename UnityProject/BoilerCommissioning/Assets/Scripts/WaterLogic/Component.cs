@@ -6,47 +6,77 @@ using System.Threading.Tasks;
 
 namespace BoilerLogic
 {
+    public class BWater
+    {
+        public int m_amount;
+        public int m_tmp;
+
+        public BWater(int a, int t)
+        {
+            m_amount = a;
+            m_tmp = t;
+        }
+
+        public BWater Copy()
+        {
+            return new BWater(m_amount, m_tmp);
+        }
+
+        public BWater Mix(BWater otherOne)
+        {
+            int allAmount = m_amount + otherOne.m_amount;
+            int allTem = (m_tmp * m_amount + otherOne.m_tmp * otherOne.m_amount) / (m_amount + otherOne.m_amount);
+            return new BWater(allAmount, allTem);
+        }
+    }
     public class Component
     {
         public string m_name;
         //components connect to me
         public List<string> m_Connected;
         //fluid
-        public int m_currentWater, m_maxWater;
+        public int m_maxWater;
+        public BWater m_currentWater;
         //can water go through?
         public bool m_canGo;
         //description
         public string m_desc;
+        //current water temperature
+        public int m_tmp;
 
         public Component(string name, int maxWater = 100)
         {
             m_name = name;
             m_Connected = new List<string>();
-            m_currentWater = 0;
+            m_currentWater = new BWater(0, 0);
             m_maxWater = maxWater;
         }
 
         public void ShowMe()
         {
-            Console.Write(" [{0}]{1}% ", m_name, (int)(m_currentWater * 100 / m_maxWater));
+            Console.Write(" [{0}]{1}% ", m_name, (int)(m_currentWater.m_amount * 100 / m_maxWater));
         }
 
-        public virtual void WaterGo(ref int input, string source)
+        public virtual void WaterGo(ref BWater input, string source)
         {
-            int orginInput = input;
-            int left = input - (m_maxWater - m_currentWater);
+            BWater orginInput = input.Copy();
+            BWater all = input.Mix(m_currentWater);
+            int left = all.m_amount - m_maxWater;
             if (left >= 0)
             {
-                m_currentWater = m_maxWater;
-                input = left;
+                m_currentWater.m_amount = m_maxWater;
+                m_currentWater.m_tmp = all.m_tmp;
+                input.m_amount = left;
+                input.m_tmp = all.m_tmp;
             }
             else
             {
-                m_currentWater += input;
-                input = 0;
+                m_currentWater.m_amount = all.m_amount;
+                m_currentWater.m_tmp = all.m_tmp;
+                input.m_amount = 0;
             }
 
-            if (orginInput != input && source != "GOD")
+            if (orginInput.m_amount != input.m_amount && source != "GOD")
                 Helper.DrawLine(source, m_name);
         }
 
@@ -71,7 +101,7 @@ namespace BoilerLogic
 
     class Joint : Component
     {
-        public Joint(string name, int maxWater = 100) : base(name, maxWater)
+        public Joint(string name, int maxWater = 20) : base(name, maxWater)
         {
             m_canGo = true;
         }
@@ -79,7 +109,7 @@ namespace BoilerLogic
 
     class Valve : Component
     {
-        public Valve(string name, int maxWater = 10) : base(name, maxWater)
+        public Valve(string name, int maxWater = 20) : base(name, maxWater)
         {
             m_canGo = false;
             m_isOn = false;
@@ -126,7 +156,7 @@ namespace BoilerLogic
             m_canGo = true;
         }
 
-        public override void WaterGo(ref int input, string source)
+        public override void WaterGo(ref BWater input, string source)
         {
             if (virtualPipe1.m_Connected.Contains(source))
             {
@@ -140,7 +170,8 @@ namespace BoilerLogic
                 throw (new Exception("Bad source for" + source));
 
             m_maxWater = virtualPipe1.m_maxWater + virtualPipe2.m_maxWater;
-            m_currentWater = virtualPipe1.m_currentWater + virtualPipe2.m_currentWater;
+            BWater ExchangerNewWater = virtualPipe1.m_currentWater.Copy();
+            m_currentWater = ExchangerNewWater.Mix(virtualPipe2.m_currentWater);
         }
 
         public override Component GetNext4WaterGo(string source)
@@ -177,13 +208,21 @@ namespace BoilerLogic
         public Boiler(string name, int maxWater = 500) : base(name, maxWater)
         {
             m_canGo = true;
-            m_isOn = false;
+            //m_isOn = true;
         }
 
         public bool m_isOn;
         public void OperateMe()
         {
             m_isOn = !m_isOn;
+        }
+
+        public override void WaterGo(ref BWater input, string source)
+        {
+            if (m_isOn)
+                m_currentWater.m_tmp = 90;
+            base.WaterGo(ref input, source);
+
         }
 
     }

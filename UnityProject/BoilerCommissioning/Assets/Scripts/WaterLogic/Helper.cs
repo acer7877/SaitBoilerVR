@@ -40,7 +40,7 @@ namespace BoilerLogic
         {
             foreach(string n in ml.m_allCom.Keys)
             {
-                if (ml.m_allCom[n].m_currentWater > 0)
+                if (ml.m_allCom[n].m_currentWater.m_amount > 0)
                     ml.m_allCom[n].ShowMe();
             }
             Console.Write("\n");
@@ -51,10 +51,13 @@ namespace BoilerLogic
         {
             foreach (string nameString in ml.m_allCom.Keys)
             {
-                if (ml.m_allCom[nameString].m_currentWater == 0)
+                if (ml.m_allCom[nameString].m_currentWater.m_amount == 0)
                     continue;
-
-                float RG = (1f - ((float)ml.m_allCom[nameString].m_currentWater / (float)ml.m_allCom[nameString].m_maxWater));
+                //percent of water amount, full=1.0f;
+                float percentage = (float)ml.m_allCom[nameString].m_currentWater.m_amount / (float)ml.m_allCom[nameString].m_maxWater;
+                Color c = Color.Lerp(Color.blue, Color.red, ((float)ml.m_allCom[nameString].m_currentWater.m_tmp) / 100f);
+                Color c1 = Color.Lerp(Color.white, c, percentage);
+               
 
                 string[] nameSplited = nameString.Split('+');
                 foreach (string nameOne in nameSplited)
@@ -66,8 +69,7 @@ namespace BoilerLogic
                         MeshRenderer r = target.transform.GetComponent<MeshRenderer>();
                         if (r != null)
                         {
-                            Color c = new Color(RG, RG, 1);
-                            r.material.color = new Color(RG, RG, 255);
+                            r.material.color = c1;
                         }
 
                     }

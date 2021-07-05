@@ -23,7 +23,7 @@ public class StageManager : MonoBehaviour
     private void Start()
     {
         m_CurStage = EnumStage.Pause;
-        SetStage(EnumStage.Welcome);
+        SetStage(EnumStage.OpenWorld);
     }
 
     //For different stage

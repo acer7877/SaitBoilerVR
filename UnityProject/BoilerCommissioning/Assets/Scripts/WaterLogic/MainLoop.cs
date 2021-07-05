@@ -239,22 +239,22 @@ namespace BoilerLogic
 
             n = new Pipe("Pipe 21");
             n.m_Connected.Add("BV-18+Pipe 18+Elbow.010");
-            n.m_Connected.Add("3 way Mixing Valve");
+            n.m_Connected.Add("In-FloorMixingValve");
             m_allCom.Add(n.m_name, n);
 
-            n = new Joint("3 way Mixing Valve");
+            n = new Joint("In-FloorMixingValve");
             n.m_Connected.Add("Pipe 21");
             n.m_Connected.Add("BV-10+Pipe 20");
             n.m_Connected.Add("Pipe 22+Elbow.012");
             m_allCom.Add(n.m_name, n);
 
             n = new Valve("BV-10+Pipe 20");
-            n.m_Connected.Add("3 way Mixing Valve");
+            n.m_Connected.Add("In-FloorMixingValve");
             n.m_Connected.Add("Tee.003");
             m_allCom.Add(n.m_name, n);
 
             n = new Pipe("Pipe 22+Elbow.012");
-            n.m_Connected.Add("3 way Mixing Valve");
+            n.m_Connected.Add("In-FloorMixingValve");
             n.m_Connected.Add("BV-11+Pipe 23+Pipe 24");
             m_allCom.Add(n.m_name, n);
 
@@ -291,21 +291,21 @@ namespace BoilerLogic
         }
 
 
-        public bool Update(int inputWater = 10)
+        public bool Update(int inputWater = 10, int temperature = 10)
         {
-            int WaterLeft = inputWater;
+            BWater WaterLeft = new BWater(inputWater,temperature);
             HashSet<string> checkedNode = new HashSet<string>();
             WaterGo("Pipe 28.003", "GOD", ref checkedNode, ref WaterLeft);
-            return WaterLeft == inputWater;
+            return WaterLeft.m_amount == inputWater;
         }
 
-        public void WaterGo(string currentNodeName, string source, ref HashSet<string> checkedNode, ref int WaterLeft)
+        public void WaterGo(string currentNodeName, string source, ref HashSet<string> checkedNode, ref BWater WaterLeft)
         {
             Component currentCom = m_allCom[currentNodeName];
             WaterGo(currentCom, source, ref checkedNode, ref WaterLeft);
         }
 
-        public void WaterGo(Component currentCom, string source, ref HashSet<string> checkedNode, ref int WaterLeft)
+        public void WaterGo(Component currentCom, string source, ref HashSet<string> checkedNode, ref BWater WaterLeft)
         {
             //can get through, return
             if (!currentCom.m_canGo)
@@ -314,7 +314,7 @@ namespace BoilerLogic
             //fill this component
             currentCom.WaterGo(ref WaterLeft, source);
             //not water left, return
-            if (WaterLeft == 0)
+            if (WaterLeft.m_amount == 0)
                 return;
 
             checkedNode.Add(currentCom.m_name);
