@@ -38,6 +38,9 @@ public class NotepadManager : MonoBehaviour
     {
         instance = this;
         initItruduction();
+
+        NP_Title = GameObject.Find("Title_np");
+        NP_Context = GameObject.Find("Context_np");
     }
 
 
@@ -139,21 +142,17 @@ public class NotepadManager : MonoBehaviour
 
         //m_intruduction["TestCube"] = new NotepadData("TestCube just for test", "√ <sprite=0> hahaha <color=red>Red</color> default");
     }
-    
+
 
 
 
 
     //set text to notepad on the left hand
+    GameObject NP_Title, NP_Context;
     public void SetNotepadContext(string Title, string Context)
     {
-        //ControllerManager.instance.SetLeftHandModel("Notepad");
-        GameObject NP_Title = GameObject.Find("Title_np");
         NP_Title.GetComponent<TMP_Text>().text = Title;
-
-        GameObject NP_Context = GameObject.Find("Context_np");
         NP_Context.GetComponent<TMP_Text>().text = Context;
-
     }
     public void SetNotepadContext(string _index)
     {

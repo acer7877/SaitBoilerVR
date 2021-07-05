@@ -48,7 +48,7 @@ public class OpenWorldMgr : MonoBehaviour
             return;
         timer -= OpenWorldFrame;
         
-        ml.Update(10);
+        ml.Update(10, 10);
         Helper.DrawHasWater(ml);
 
     }

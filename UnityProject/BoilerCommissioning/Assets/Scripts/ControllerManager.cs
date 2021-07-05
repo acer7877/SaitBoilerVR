@@ -40,6 +40,7 @@ public class ControllerManager : MonoBehaviour
         }
         else
         {
+            if(LeftControllerCurrentModel == "Hand" || LeftControllerCurrentModel=="Notepad")
             LCM_tmp = LeftControllerCurrentModel;
             SetLeftHandModel(Model);
         }
@@ -101,9 +102,12 @@ public class ControllerManager : MonoBehaviour
         //Show Hint
         LeftEvent.ButtonOnePressed += CreateHint;
         LeftEvent.ButtonOneReleased += DeleteHint;
+
+        LeftEvent.ButtonTwoPressed += ShowRightHand_MagnifyGlass;
+        LeftEvent.ButtonTwoReleased += ShowRightHand_Hand;
         //Right hand change
-        RightEvent.TriggerPressed += ShowRightHand_MagnifyGlass;
-        RightEvent.TriggerReleased += ShowRightHand_Hand;
+        //RightEvent.TriggerPressed += ShowRightHand_MagnifyGlass;
+        //RightEvent.TriggerReleased += ShowRightHand_Hand;
 
     }
     private void ResetSence(object sender, ControllerInteractionEventArgs e)
@@ -133,20 +137,22 @@ public class ControllerManager : MonoBehaviour
     }
     private void ShowRightHand_MagnifyGlass(object sender, ControllerInteractionEventArgs e)
     {
+        if (LCM_tmp != "")//everytime go to glass model, reset left hand
+            SetLeftHandModel_tmp();
         SetRightHandModel("Glass");
     }
     private void ShowRightHand_Hand(object sender, ControllerInteractionEventArgs e)
     {
-        if(RightControllerCurrentModel == "Glass")
-        {//if close glass on right, reset left hand model
-            SetLeftHandModel_tmp();
-        }
+        //if(RightControllerCurrentModel == "Glass")
+        //{//if close glass on right, reset left hand model
+        //    SetLeftHandModel_tmp();
+        //}
         SetRightHandModel("Hand");
     }
 
 
     public void SetLeftIndicatorTxt(string txt)
     {
-        LeftControllerList["Indicator"].GetComponent<TMP_Text>().text = txt;
+        LeftControllerList["Indicator"].GetComponentInChildren<TMP_Text>().text = txt;
     }
 }

@@ -51,12 +51,7 @@ public class BGameObject : MonoBehaviour
         //In intuducing mode, just show the intudaction onto the notepad
         if (StageManager.instance.CurrentStage == StageManager.EnumStage.Intrudce)
         {
-            GameObject targetObject = this.gameObject;
-            for (int i = 0; i < ParentCnt; i++)
-            {
-                targetObject = transform.parent.gameObject;
-            }
-            NotepadManager.instance.SetNotepadContext(targetObject.name);
+            NotepadManager.instance.SetNotepadContext(BGetName());
         }
 
         //In Operating and Openword mode
@@ -82,5 +77,15 @@ public class BGameObject : MonoBehaviour
     {
         T t = GO.AddComponent<T>();
         return t;
+    }
+
+    public string BGetName()
+    {
+        GameObject targetObject = this.gameObject;
+        for (int i = 0; i < ParentCnt; i++)
+        {
+            targetObject = transform.parent.gameObject;
+        }
+        return targetObject.name;
     }
 }
