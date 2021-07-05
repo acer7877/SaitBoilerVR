@@ -136,14 +136,16 @@ public class ControllerManager : MonoBehaviour
     }
     private void ShowRightHand_MagnifyGlass(object sender, ControllerInteractionEventArgs e)
     {
+        if (LCM_tmp != "")//everytime go to glass model, reset left hand
+            SetLeftHandModel_tmp();
         SetRightHandModel("Glass");
     }
     private void ShowRightHand_Hand(object sender, ControllerInteractionEventArgs e)
     {
-        if(RightControllerCurrentModel == "Glass")
-        {//if close glass on right, reset left hand model
-            SetLeftHandModel_tmp();
-        }
+        //if(RightControllerCurrentModel == "Glass")
+        //{//if close glass on right, reset left hand model
+        //    SetLeftHandModel_tmp();
+        //}
         SetRightHandModel("Hand");
     }
 

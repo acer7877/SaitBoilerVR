@@ -25,7 +25,9 @@ namespace BoilerLogic
         public BWater Mix(BWater otherOne)
         {
             int allAmount = m_amount + otherOne.m_amount;
-            int allTem = (m_tmp * m_amount + otherOne.m_tmp * otherOne.m_amount) / (m_amount + otherOne.m_amount);
+            if (allAmount == 0)
+                return null;
+            int allTem = (m_tmp * m_amount + otherOne.m_tmp * otherOne.m_amount) / allAmount;
             return new BWater(allAmount, allTem);
         }
     }
