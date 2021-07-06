@@ -123,7 +123,7 @@ public class StepManager : MonoBehaviour
         step.description = "this is for testing of new function, and set Temp.Indicator to \"777\"\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_Indicator_Num, 50));
-        step.AfterDone = ()=>{ GameObject.Find("Temp.Indicator").GetComponent<BTIndicator>().setNum(777); };
+        step.AfterDone = ()=>{ GameObject.Find("Temp.Indicator").GetComponent<BTIndicator>().setNum(777);};
         m_allSteps.Add(step);
 
         step = new BStep();

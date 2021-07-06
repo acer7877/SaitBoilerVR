@@ -15,6 +15,7 @@ public class BComBtn : MonoBehaviour
     {
         if (other.name == "Index")
         {
+            SoundManager.instance.Play("di");
             OnClick.Invoke(other);
         }
     }
