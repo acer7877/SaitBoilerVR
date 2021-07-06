@@ -120,21 +120,6 @@ public class StepManager : MonoBehaviour
         m_allSteps = new List<BStep>();
         BStep step;
 
-        step = new BStep();
-        step.title = "Test_Aquastat";
-        step.description = "this is for testing of new function\n";
-        step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_AquaStat_Num, 50));
-        m_allSteps.Add(step);
-
-        step = new BStep();
-        step.title = "Test_indicator";
-        step.description = "this is for testing of new function\n";
-        step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("Indicator (2)", "Idicator XXX",BChecker.eCheckAction.ECA_Indicator_Num, 1000));
-        m_allSteps.Add(step);
-
-
         //Pre-startup procedure(1/2)
         //a.Observe area around the boiler to ensure there are no combustible materials, gases or other flammable liquids or vapors (paint cans, aerosol containers, solvents) (Removal of correct items is required to move onto the next step) 
         step = new BStep();
@@ -263,7 +248,7 @@ public class StepManager : MonoBehaviour
         step.title = "Firing the boiler system.";
         step.description = "In-floor heating startup. (3/4)\n";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("AquaStat", "Set tempurature on thermostat to [---] to activate In-floor Heating Pump 3.\nIn-floor heating will continuously run until the tempurature set has been reached.", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("AquaStat", "Set tempurature on thermostat to 140°F to activate In-floor Heating Pump 3.\nIn-floor heating will continuously run until the tempurature set has been reached.", BChecker.eCheckAction.ECA_Valve_on));
         //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
         m_allSteps.Add(step);
 
@@ -274,6 +259,20 @@ public class StepManager : MonoBehaviour
         step.checklist.Add(new BChecker("AquaStat", "Remove cover to the boiler.", BChecker.eCheckAction.ECA_Valve_on));
         step.checklist.Add(new BChecker("AquaStat", "Observe Flame.", BChecker.eCheckAction.ECA_Valve_on));
         //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Test Aquastat";
+        step.description = "this is for testing of new function\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_AquaStat_Num, 50));
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Test_indicator";
+        step.description = "this is for testing of new function\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("Indicator (2)", "Idicator XXX", BChecker.eCheckAction.ECA_Indicator_Num, 1000));
         m_allSteps.Add(step);
 
     }
