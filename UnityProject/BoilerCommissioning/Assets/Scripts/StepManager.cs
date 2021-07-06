@@ -282,20 +282,6 @@ public class StepManager : MonoBehaviour
         //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
         m_allSteps.Add(step);
 
-        step = new BStep();
-        step.title = "Test Aquastat";
-        step.description = "this is for testing of new function\n";
-        step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_AquaStat_Num, 50));
-        m_allSteps.Add(step);
-
-        step = new BStep();
-        step.title = "Test_indicator";
-        step.description = "this is for testing of new function\n";
-        step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("Indicator (2)", "Idicator XXX", BChecker.eCheckAction.ECA_Indicator_Num, 1000));
-        m_allSteps.Add(step);
-
     }
 
     public void StartStepFromBeginning()
