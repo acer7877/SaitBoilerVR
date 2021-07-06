@@ -41,6 +41,7 @@ public class BChecker
         ECA_Object_on,
         ECA_Object_off,
         ECA_Indicator_Num,
+        ECA_Fix,
     }
 
     //make context string for the notepad
