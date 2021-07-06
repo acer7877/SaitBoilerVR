@@ -11,7 +11,7 @@ public class BPump : BGameObject
     {
         base.Awake();
         VRTKIO.isGrabbable = false;
-        IsOn = true;
+        IsOn = false;
         audio = GetComponent<AudioSource>();
     }
 
