@@ -118,29 +118,6 @@ public class StepManager : MonoBehaviour
         m_allSteps = new List<BStep>();
         BStep step;
 
-        step = new BStep();
-        step.title = "Test_Aquastat";
-        step.description = "this is for testing of new function, and set Temp.Indicator to \"777\"\n";
-        step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_Indicator_Num, 50));
-        step.AfterDone = ()=>{ GameObject.Find("Temp.Indicator").GetComponent<BTIndicator>().setNum(777); };
-        m_allSteps.Add(step);
-
-        step = new BStep();
-        step.title = "Test_Pressure_Indicator";
-        step.description = "this is for testing of new function\n";
-        step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("Indicator", "Presure Indicator", BChecker.eCheckAction.ECA_Indicator_Num, 30));
-        m_allSteps.Add(step);
-
-        step = new BStep();
-        step.title = "Test_indicator";
-        step.description = "this is for testing of new function\n";
-        step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("Indicator (2)", "Idicator XXX",BChecker.eCheckAction.ECA_Indicator_Num, 1000));
-        m_allSteps.Add(step);
-
-
         //Pre-startup procedure(1/2)
         //a.Observe area around the boiler to ensure there are no combustible materials, gases or other flammable liquids or vapors (paint cans, aerosol containers, solvents) (Removal of correct items is required to move onto the next step) 
         step = new BStep();
@@ -282,6 +259,27 @@ public class StepManager : MonoBehaviour
         //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
         m_allSteps.Add(step);
 
+        step = new BStep();
+        step.title = "Test_Aquastat";
+        step.description = "this is for testing of new function, and set Temp.Indicator to \"777\"\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_Indicator_Num, 50));
+        step.AfterDone = () => { GameObject.Find("Temp.Indicator").GetComponent<BTIndicator>().setNum(777); };
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Test_Pressure_Indicator";
+        step.description = "this is for testing of new function\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("Indicator", "Presure Indicator", BChecker.eCheckAction.ECA_Indicator_Num, 30));
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Test_indicator";
+        step.description = "this is for testing of new function\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("Indicator (2)", "Idicator XXX", BChecker.eCheckAction.ECA_Indicator_Num, 1000));
+        m_allSteps.Add(step);
     }
 
     public void StartStepFromBeginning()
