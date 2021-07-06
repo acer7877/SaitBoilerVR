@@ -4,13 +4,12 @@ using UnityEngine;
 using VRTK;
 using TMPro;
 
-public class BAquaStat : BGameObject
+public class BPIndicator : BGameObject
 {
-    protected int Num,TargetNum;
+    int Num,TargetNum;
     public TMP_Text m_screen;
     //For the object in hand, we need a component in the boiler system as target
-    BAquaStat linked;
-
+    BPIndicator linked;
     protected override void Awake()
     {
         base.Awake();
@@ -23,26 +22,26 @@ public class BAquaStat : BGameObject
     protected override void OnEnable()
     {
         base.OnEnable();
-        VRTKIO.InteractableObjectTouched += CheckAquaStat;
+        VRTKIO.InteractableObjectTouched += CheckPressureIdicator;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        VRTKIO.InteractableObjectTouched -= CheckAquaStat;
+        VRTKIO.InteractableObjectTouched -= CheckPressureIdicator;
     }
     private void Start()
     {
         m_screen.SetText("0");
     }
 
-    void CheckAquaStat(object sender, InteractableObjectEventArgs e)
+    void CheckPressureIdicator(object sender, InteractableObjectEventArgs e)
     {
         if (StageManager.instance.CurrentStage == StageManager.EnumStage.Operatie
             && ControllerManager.instance.GetRightHandMode() == "Glass")
         {//for now only do the check in steps and when right hand is magnifying glass
-            ControllerManager.instance.SetLeftHandModel_tmp("AquaStat");
-            linked = ControllerManager.instance.LeftControllerList["AquaStat"].GetComponent<BAquaStat>();
+            ControllerManager.instance.SetLeftHandModel_tmp("Press.Indicator");
+            linked = ControllerManager.instance.LeftControllerList["Press.Indicator"].GetComponent<BPIndicator>();
             linked.linked = this;
 
             BChecker bc = StepManager.instance.GetCheckerByNameFromCurStep(BGetName());
@@ -50,8 +49,9 @@ public class BAquaStat : BGameObject
             {
                 TargetNum = bc.arg;
                 linked.TargetNum = TargetNum;
-                linked.Num = Num;
             }
+            linked.setNum(Num);
+
         }
     }
 
@@ -76,7 +76,6 @@ public class BAquaStat : BGameObject
     public void NumAddLinked(int num = 10)
     {
         setNum(num + Num);
-        m_screen.text = Num.ToString();
         if (TargetNum != 0 && Num == TargetNum)
         {
             ObjectManager.instance.Action(BGetName(), BChecker.eCheckAction.ECA_Indicator_Num);

@@ -6,8 +6,6 @@ using UnityEngine.Events;
 
 public class BComBtn : MonoBehaviour
 {
-    public List<GameObject> InteractWith;
-    
     [Serializable]
     public sealed class ComBtnEvent : UnityEvent<object> { }
     public ComBtnEvent OnClick = new ComBtnEvent();
@@ -15,7 +13,7 @@ public class BComBtn : MonoBehaviour
     //float lastTriggerTime;
     private void OnTriggerEnter(Collider other)
     {
-        if (InteractWith.Contains(other.gameObject))
+        if (other.name == "Index")
         {
             OnClick.Invoke(other);
         }

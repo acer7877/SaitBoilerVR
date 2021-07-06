@@ -41,7 +41,6 @@ public class BChecker
         ECA_Object_on,
         ECA_Object_off,
         ECA_Indicator_Num,
-        ECA_AquaStat_Num,
     }
 
     //make context string for the notepad
@@ -69,10 +68,7 @@ public class BChecker
                 ActionString += string.Format("Find and make sure <u>{0}</u> is <b>stop working</b>.", targetName);
                 break;
             case eCheckAction.ECA_Indicator_Num:
-                ActionString += string.Format("Check <u>{0}</u> and make sure the degree is <b>{1}</b> PSI", targetName, arg);
-                break;
-            case eCheckAction.ECA_AquaStat_Num:
-                ActionString += string.Format("Find <u>{0}</u> and change the degree to <b>{1}</b> PSI", targetName, arg);
+                ActionString += string.Format("Check <u>{0}</u> and make sure the Number is <b>{1}</b> PSI", targetName, arg);
                 break;
             default:
                 throw new System.Exception("unknow check action!" + targtAction.ToString());
@@ -87,6 +83,8 @@ public class BStep
     public string title;
     public string description;
     public List<BChecker> checklist;
+    public delegate void LamdaFun();
+    public LamdaFun AfterDone;
 
     public void PrintToNotpad()
     {
@@ -122,9 +120,17 @@ public class StepManager : MonoBehaviour
 
         step = new BStep();
         step.title = "Test_Aquastat";
+        step.description = "this is for testing of new function, and set Temp.Indicator to \"777\"\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_Indicator_Num, 50));
+        step.AfterDone = ()=>{ GameObject.Find("Temp.Indicator").GetComponent<BTIndicator>().setNum(777); };
+        m_allSteps.Add(step);
+
+        step = new BStep();
+        step.title = "Test_Pressure_Indicator";
         step.description = "this is for testing of new function\n";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_AquaStat_Num, 50));
+        step.checklist.Add(new BChecker("Indicator", "Presure Indicator", BChecker.eCheckAction.ECA_Indicator_Num, 30));
         m_allSteps.Add(step);
 
         step = new BStep();
@@ -323,6 +329,9 @@ public class StepManager : MonoBehaviour
                     m_allSteps[m_currentStep].PrintToNotpad();
                     sound = "step";
                     NextStepBtn.enabled = true;
+
+                    if (m_allSteps[m_currentStep].AfterDone != null)
+                        m_allSteps[m_currentStep].AfterDone();
                 }
             }
             else//show the current step
