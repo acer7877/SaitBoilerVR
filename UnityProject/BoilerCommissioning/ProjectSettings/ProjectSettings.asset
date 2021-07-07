@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: TheHeatIsOn
   productName: BoilerCommissioning
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -429,12 +429,11 @@ PlayerSettings:
   m_BuildTargetVRSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 1
-    m_Devices:
-    - None
-    - Oculus
-  - m_BuildTarget: Android
-    m_Enabled: 0
     m_Devices: []
+  - m_BuildTarget: Android
+    m_Enabled: 1
+    m_Devices:
+    - Oculus
   - m_BuildTarget: WebGL
     m_Enabled: 0
     m_Devices: []

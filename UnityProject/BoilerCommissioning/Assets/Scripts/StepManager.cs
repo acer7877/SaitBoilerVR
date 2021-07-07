@@ -41,6 +41,7 @@ public class BChecker
         ECA_Object_on,
         ECA_Object_off,
         ECA_Indicator_Num,
+        ECA_Indicator_Tmp,
         ECA_Fix,
         ECA_Swith_boiler_on,
     }
@@ -70,7 +71,10 @@ public class BChecker
                 ActionString += string.Format("Find and make sure <u>{0}</u> is <b>stop working</b>.", targetName);
                 break;
             case eCheckAction.ECA_Indicator_Num:
-                ActionString += string.Format("Check <u>{0}</u> and make sure the Number is <b>{1}</b> PSI", targetName, arg);
+                ActionString += string.Format("Check <u>{0}</u> and use the buttons to adjust the Number to <b>{1}</b>.", targetName, arg);
+                break;
+            case eCheckAction.ECA_Indicator_Tmp:
+                ActionString += string.Format("Check <u>{0}</u> and the Number should go to <b>{1}</b>.", targetName, arg);
                 break;
             case eCheckAction.ECA_Fix:
                 ActionString += string.Format("Fix <u>{0}</u> with a wrench ", targetName);
@@ -125,9 +129,7 @@ public class StepManager : MonoBehaviour
         m_currentStep = 0;
         m_allSteps = new List<BStep>();
 
-        //initTestStep();
-        //initFillingSystem();
-        GameObject.Find("almson NXL13-25P.0015P.001").GetComponent<BLeak>().setOn(true);
+        initFillingSystem();
         initStarBoiler();
 
     }
@@ -227,6 +229,10 @@ public class StepManager : MonoBehaviour
         step.checklist.Add(new BChecker("BV-10", "In-floor Heating 3-way Mixing Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
         step.checklist.Add(new BChecker("BV-12", "In-floor Heating Isolation Valve (Return)", BChecker.eCheckAction.ECA_Valve_on));
         step.checklist.Add(new BChecker("BV-21", "In-floor Heating Return Drain", BChecker.eCheckAction.ECA_Valve_off));
+        step.AfterDone = () =>
+         {
+             GameObject.Find("Leak@Salmson NXL13-25P.0015P.001").GetComponent<BLeak>().setOn(true);
+         };
         m_allSteps.Add(step);
 
 
@@ -241,7 +247,7 @@ public class StepManager : MonoBehaviour
         step.title = "Firing the boiler system.";
         step.description = "Repair any leaking pipes using the Pipe Wrench. (1/6)\n";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("almson NXL13-25P.0015P.001", "Water leaking at pump", BChecker.eCheckAction.ECA_Fix));
+        step.checklist.Add(new BChecker("Leak@Salmson NXL13-25P.0015P.001", "Water leaking at pump", BChecker.eCheckAction.ECA_Fix));
         m_allSteps.Add(step);
 
         step = new BStep();

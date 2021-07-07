@@ -61,7 +61,7 @@ public class BTheamostat : BGameObject
         {
             if (Num == TargetNum)
             {
-                ObjectManager.instance.Action(BGetName(), BChecker.eCheckAction.ECA_Indicator_Num);
+                ObjectManager.instance.Action(BGetName(), BChecker.eCheckAction.ECA_Indicator_Tmp);
                 TargetNum = 0;
             }
         }
