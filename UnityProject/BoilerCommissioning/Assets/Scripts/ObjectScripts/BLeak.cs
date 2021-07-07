@@ -13,7 +13,7 @@ public class BLeak : MonoBehaviour
 
     protected void Awake()
     {
-        m_isOn = false;
+        setOn(false);
         MeshRenderer m = GetComponent<MeshRenderer>();
         m.enabled = false;
     }
@@ -27,7 +27,7 @@ public class BLeak : MonoBehaviour
         }
     }
 
-    public void setOn( bool isOn)
+    public void setOn(bool isOn)
     {
         m_isOn = isOn;
         if (m_isOn)

@@ -117,6 +117,28 @@ public class StepManager : MonoBehaviour
     {
         m_currentStep = 0;
         m_allSteps = new List<BStep>();
+
+        initTestStep();
+        //initFillingSystem();
+        initStarBoiler();
+    }
+
+    void initTestStep()
+    {
+        BStep step;
+        step = new BStep();
+        step.title = "Test begin";
+        step.description = "this is a step for testing\n";
+        step.checklist = new List<BChecker>();
+        step.checklist.Add(new BChecker("BV-10", "In-floor Heating 3-way Mixing Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.AfterDone = () => {
+
+            GameObject.Find("almson NXL13-25P.0015P.001").GetComponent<BLeak>().setOn(true);
+        };
+        m_allSteps.Add(step);
+    }
+    void initFillingSystem()
+    {
         BStep step;
 
         //Pre-startup procedure(1/2)
@@ -140,7 +162,7 @@ public class StepManager : MonoBehaviour
         m_allSteps.Add(step);
 
         //Filling the system with water(1/n)
-        
+
         step = new BStep();
         step.title = "Filling the system with water";
         step.description = "Begin priming the central heating system lines. (1/9)\n";
@@ -225,12 +247,18 @@ public class StepManager : MonoBehaviour
         //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
         m_allSteps.Add(step);
 
+
+    }
+
+    void initStarBoiler()
+    {
+        BStep step;
+
         step = new BStep();
         step.title = "Firing the boiler system.";
         step.description = "Repair any leaking pipes using the appropriate tool. (1/4)\n";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("BV-10", "In-floor Heating 3-way Mixing Isolation Valve", BChecker.eCheckAction.ECA_Valve_on));
-        //?step.checklist.Add(new BChecker("DiaphragmValve", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("almson NXL13-25P.0015P.001", "Water leaking at pump", BChecker.eCheckAction.ECA_Fix));
         m_allSteps.Add(step);
 
         step = new BStep();
@@ -282,6 +310,7 @@ public class StepManager : MonoBehaviour
         step.checklist.Add(new BChecker("Indicator (2)", "Idicator XXX", BChecker.eCheckAction.ECA_Indicator_Num, 1000));
         m_allSteps.Add(step);
     }
+
 
     public void StartStepFromBeginning()
     {
