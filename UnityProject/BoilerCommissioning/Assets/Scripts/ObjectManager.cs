@@ -7,9 +7,12 @@ public class ObjectManager : MonoBehaviour
     //this is a sigleton
     private ObjectManager() { }
     public static ObjectManager instance;
+
+    public GameObject PipeInFloor;
     private void Awake()
     {
         instance = this;
+        PipeInFloor.SetActive(false);
     }
 
     Dictionary<string, GameObject> m_ObjectList;

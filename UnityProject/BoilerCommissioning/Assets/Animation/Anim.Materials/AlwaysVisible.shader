@@ -72,7 +72,7 @@
                 float4 vertex : SV_POSITION;
             };
 
-            float4 _Color;
+            /*float4 _Color;
 
             v2f vert (appdata v)
             {
@@ -82,6 +82,7 @@
 
                 return o;
             }
+            */
 
             fixed4 frag (v2f i) : SV_Target
             {
