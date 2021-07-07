@@ -153,6 +153,6 @@ public class ControllerManager : MonoBehaviour
 
     public void SetLeftIndicatorTxt(string txt)
     {
-        LeftControllerList["Indicator"].GetComponentInChildren<TMP_Text>().text = txt;
+        LeftControllerList["Temp.Indicator"].GetComponentInChildren<TMP_Text>().text = txt;
     }
 }

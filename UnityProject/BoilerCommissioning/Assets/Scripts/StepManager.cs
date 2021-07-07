@@ -42,6 +42,7 @@ public class BChecker
         ECA_Object_off,
         ECA_Indicator_Num,
         ECA_Fix,
+        ECA_Swith_boiler_on,
     }
 
     //make context string for the notepad
@@ -70,6 +71,12 @@ public class BChecker
                 break;
             case eCheckAction.ECA_Indicator_Num:
                 ActionString += string.Format("Check <u>{0}</u> and make sure the Number is <b>{1}</b> PSI", targetName, arg);
+                break;
+            case eCheckAction.ECA_Fix:
+                ActionString += string.Format("Fix <u>{0}</u> with a wrench ", targetName);
+                break;
+            case eCheckAction.ECA_Swith_boiler_on:
+                ActionString += string.Format("Turn on <u>{0}</u> by operate the turn on the switch on the wall. ", targetName);
                 break;
             default:
                 throw new System.Exception("unknow check action!" + targtAction.ToString());
@@ -118,9 +125,11 @@ public class StepManager : MonoBehaviour
         m_currentStep = 0;
         m_allSteps = new List<BStep>();
 
-        initTestStep();
+        //initTestStep();
         //initFillingSystem();
+        GameObject.Find("almson NXL13-25P.0015P.001").GetComponent<BLeak>().setOn(true);
         initStarBoiler();
+
     }
 
     void initTestStep()
@@ -227,7 +236,6 @@ public class StepManager : MonoBehaviour
     {
         BStep step;
 
-
         //Firing the boiler system.(1/n)
         step = new BStep();
         step.title = "Firing the boiler system.";
@@ -240,9 +248,7 @@ public class StepManager : MonoBehaviour
         step.title = "Firing the boiler system.";
         step.description = "Turn on switch to boiler. (2/7)\n";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("AquaStat", "Locate the AquaStat.", BChecker.eCheckAction.ECA_Valve_on));
-        step.checklist.Add(new BChecker("AquaStat", "Set the tempurature to 140°F.", BChecker.eCheckAction.ECA_Valve_on));
-        step.checklist.Add(new BChecker("BV-20", "Open the Gas Valve.", BChecker.eCheckAction.ECA_Valve_on));
+        step.checklist.Add(new BChecker("Boiler", "Boiler", BChecker.eCheckAction.ECA_Swith_boiler_on));
         m_allSteps.Add(step);
 
         step = new BStep();
@@ -257,58 +263,46 @@ public class StepManager : MonoBehaviour
         step.title = "Firing the boiler system.";
         step.description = "Set the Aquastat to 140°F. (4/7)\n";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_Indicator_Num, 50));
-        step.AfterDone = () => { GameObject.Find("Aquastat").GetComponent<BTIndicator>().setNum(140); };
+        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_Indicator_Num, 140));
+        step.AfterDone = () => { 
+            GameObject.Find("Salmson NXL13-25P.001").GetComponent<BPump>().IsOn = true; 
+            GameObject.Find("Salmson NXL13-25P.002").GetComponent<BPump>().IsOn = true;
+            GameObject.Find("Boiler").GetComponent<BBoiler>().setStateWorking();
+        };
         m_allSteps.Add(step);
 
         step = new BStep();
         step.title = "Firing the boiler system.";
         step.description = "Check the readings of the temperature indicators. (5/7)\n";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("", "", BChecker.eCheckAction.ECA_Indicator_Num, 50));
-        step.AfterDone = () => { GameObject.Find("").GetComponent<BTIndicator>().setNum(140); };
+        step.checklist.Add(new BChecker("Temp.Indicator", "Boiler Supply Thermometer", BChecker.eCheckAction.ECA_Indicator_Num, 138));
+        step.checklist.Add(new BChecker("Temp.Indicator (1)", "Boiler Return Thermometer", BChecker.eCheckAction.ECA_Indicator_Num, 118));
         m_allSteps.Add(step);
+
 
         step = new BStep();
         step.title = "Firing the boiler system.";
         step.description = "Set Thermostat to <b>80°F</b>. (6/7)\n";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("", "", BChecker.eCheckAction.ECA_Indicator_Num, 50));
-        step.AfterDone = () => { GameObject.Find("").GetComponent<BTIndicator>().setNum(140); };
+        step.checklist.Add(new BChecker("Thermostat", "Thermostat", BChecker.eCheckAction.ECA_Indicator_Num, 80));
+        step.AfterDone = () =>
+        {
+            GameObject.Find("Salmson NXL13-25P.003").GetComponent<BPump>().IsOn = true;
+            //heat next room here
+        };
         m_allSteps.Add(step);
 
-        step = new BStep();
-        step.title = "Firing the boiler system.";
-        step.description = "Remove the cover to the boiler using the Flat Head Screwdriver and observe the . (7/7)\n";
-        step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("", "", BChecker.eCheckAction.ECA_Indicator_Num, 50));
-        step.AfterDone = () => { GameObject.Find("").GetComponent<BTIndicator>().setNum(140); };
-        m_allSteps.Add(step);
+        //step = new BStep();
+        //step.title = "Firing the boiler system.";
+        //step.description = "Check the Thermometer for the next room. (7/7)\n";
+        //step.checklist = new List<BChecker>();
+        //step.checklist.Add(new BChecker("Temp.Indicator Next Room", "Thermometer for next room", BChecker.eCheckAction.ECA_Indicator_Num, 80));
+        //step.AfterDone = () =>
+        //{
+        //    //heat next room here
+        //};
+        //m_allSteps.Add(step);
 
-        //End of Commissioning Steps
-
-
-        step = new BStep();
-        step.title = "Test_Aquastat";
-        step.description = "This is for testing of new function, and set Temp.Indicator to <b>140°F</b>. \n";
-        step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_Indicator_Num, 50));
-        step.AfterDone = () => { GameObject.Find("Aquastat").GetComponent<BTIndicator>().setNum(140); };
-        m_allSteps.Add(step);
-
-        step = new BStep();
-        step.title = "Test_Pressure_Indicator";
-        step.description = "this is for testing of new function\n";
-        step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("Indicator", "Presure Indicator", BChecker.eCheckAction.ECA_Indicator_Num, 30));
-        m_allSteps.Add(step);
-
-        step = new BStep();
-        step.title = "Test_indicator";
-        step.description = "this is for testing of new function\n";
-        step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("Indicator (2)", "Idicator XXX", BChecker.eCheckAction.ECA_Indicator_Num, 1000));
-        m_allSteps.Add(step);
     }
 
 
@@ -337,7 +331,6 @@ public class StepManager : MonoBehaviour
                     c.isFinished = isFinished;
                     anythingChaged = true;
                 }
-                    
             }
 
             isAllFinished &= c.isFinished;
