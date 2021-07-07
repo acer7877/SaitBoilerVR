@@ -15,6 +15,8 @@ public class ObjectManager : MonoBehaviour
     Dictionary<string, GameObject> m_ObjectList;
     public void RegistGameObject(string name, GameObject GOTarget)
     {
+        if (m_ObjectList == null)
+            m_ObjectList = new Dictionary<string, GameObject>();
         m_ObjectList[name] = GOTarget;
     }
 
@@ -27,5 +29,10 @@ public class ObjectManager : MonoBehaviour
     public void Action(string actorName, BChecker.eCheckAction actionType)
     {
         StepManager.instance.Action(actorName, actionType);
+    }
+
+    public GameObject getGOByName(string name)
+    {
+        return m_ObjectList.ContainsKey(name) ? m_ObjectList[name] : null;
     }
 }

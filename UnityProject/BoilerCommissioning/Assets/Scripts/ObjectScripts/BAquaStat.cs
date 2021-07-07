@@ -6,7 +6,7 @@ using TMPro;
 
 public class BAquaStat : BGameObject
 {
-    int Num,TargetNum;
+    protected int Num,TargetNum;
     public TMP_Text m_screen;
     //For the object in hand, we need a component in the boiler system as target
     BAquaStat linked;
@@ -50,6 +50,7 @@ public class BAquaStat : BGameObject
             {
                 TargetNum = bc.arg;
                 linked.TargetNum = TargetNum;
+                linked.Num = Num;
             }
         }
     }
@@ -60,7 +61,7 @@ public class BAquaStat : BGameObject
         {
             if (Num == TargetNum)
             {
-                ObjectManager.instance.Action(BGetName(), BChecker.eCheckAction.ECA_AquaStat_Num);
+                ObjectManager.instance.Action(BGetName(), BChecker.eCheckAction.ECA_Indicator_Num);
                 TargetNum = 0;
             }
         }
@@ -74,13 +75,18 @@ public class BAquaStat : BGameObject
 
     public void NumAddLinked(int num = 10)
     {
-        Num += num;
+        setNum(num + Num);
         m_screen.text = Num.ToString();
         if (TargetNum != 0 && Num == TargetNum)
         {
-            ObjectManager.instance.Action(BGetName(), BChecker.eCheckAction.ECA_AquaStat_Num);
+            ObjectManager.instance.Action(BGetName(), BChecker.eCheckAction.ECA_Indicator_Num);
             TargetNum = 0;
         }
     }
 
+    public void setNum(int n)
+    {
+        Num = n;
+        m_screen.text = n.ToString() + "°F";
+    }
 }

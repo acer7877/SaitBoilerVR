@@ -15,7 +15,8 @@ public class BGameObject : MonoBehaviour
     public int ParentCnt = 0;
     protected virtual void Awake()
     {
-        //ObjectManager.instance.RegistGameObject(this.name, this.GetComponentInParent<GameObject>());
+        //ObjectManager.instance.RegistGameObject(BGetName(), BGetGO());
+
 
         VRTKIO = BAddComponent<VRTK_InteractableObject>(gameObject);
 
@@ -87,5 +88,15 @@ public class BGameObject : MonoBehaviour
             targetObject = transform.parent.gameObject;
         }
         return targetObject.name;
+    }
+
+    GameObject BGetGO()
+    {
+        GameObject targetObject = this.gameObject;
+        for (int i = 0; i < ParentCnt; i++)
+        {
+            targetObject = transform.parent.gameObject;
+        }
+        return targetObject;
     }
 }
