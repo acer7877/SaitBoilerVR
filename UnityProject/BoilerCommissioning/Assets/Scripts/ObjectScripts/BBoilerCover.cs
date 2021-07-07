@@ -13,7 +13,7 @@ public class BBoilerCover : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Index")
+        if (other.name == "FlatHead")
         {
             SoundManager.instance.Play("di");
             GetComponent<Rigidbody>().isKinematic = false;

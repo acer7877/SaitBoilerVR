@@ -11842,7 +11842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1099235825
 Transform:
   m_ObjectHideFlags: 0
@@ -16392,6 +16392,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531778059}
   m_CullTransparentMesh: 0
+--- !u!1 &1542329392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6d438f51181376143a948db4cabd38dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1980601245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1556848118
 GameObject:
   m_ObjectHideFlags: 0
@@ -22050,6 +22056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3c86c2bb5463440bf8d2f4acfefd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PipeInFloor: {fileID: 1542329392}
 --- !u!114 &1979079606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22174,27 +22181,32 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2039038254}
+    m_TransformParent: {fileID: 543450652574673759}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6d438f51181376143a948db4cabd38dd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6d438f51181376143a948db4cabd38dd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d438f51181376143a948db4cabd38dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.1199994
+      value: -1.3520007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d438f51181376143a948db4cabd38dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1540906
+      value: -0.07836376
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d438f51181376143a948db4cabd38dd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.41
+      value: -1.8009999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d438f51181376143a948db4cabd38dd,
         type: 3}
@@ -22240,6 +22252,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Infloor Heating Pipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d438f51181376143a948db4cabd38dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d438f51181376143a948db4cabd38dd, type: 3}
@@ -22359,37 +22376,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1930283906}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2039038253
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2039038254}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2039038254
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039038253}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 6.84, y: -0.14, z: 3.04}
-  m_LocalScale: {x: 1, y: 0.4, z: 1}
-  m_Children:
-  - {fileID: 1980601246}
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &2044791808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28297,6 +28283,7 @@ Transform:
   - {fileID: 543450651952784433}
   - {fileID: 2132873428}
   - {fileID: 1570819317}
+  - {fileID: 1980601246}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}

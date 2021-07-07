@@ -239,21 +239,21 @@ public class StepManager : MonoBehaviour
         //Firing the boiler system.(1/n)
         step = new BStep();
         step.title = "Firing the boiler system.";
-        step.description = "Repair any leaking pipes using the Pipe Wrench. (1/7)\n";
+        step.description = "Repair any leaking pipes using the Pipe Wrench. (1/6)\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("almson NXL13-25P.0015P.001", "Water leaking at pump", BChecker.eCheckAction.ECA_Fix));
         m_allSteps.Add(step);
 
         step = new BStep();
         step.title = "Firing the boiler system.";
-        step.description = "Turn on switch to boiler. (2/7)\n";
+        step.description = "Turn on switch to boiler. (2/6)\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("Boiler", "Boiler", BChecker.eCheckAction.ECA_Swith_boiler_on));
         m_allSteps.Add(step);
 
         step = new BStep();
         step.title = "Firing the boiler system.";
-        step.description = "Open the Gas Valve (3/7)\n";
+        step.description = "Open the Gas Valve (3/6)\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("BV-20", "Boiler Natural Gas Supply Valve", BChecker.eCheckAction.ECA_Valve_on));
         m_allSteps.Add(step);
@@ -261,7 +261,7 @@ public class StepManager : MonoBehaviour
 
         step = new BStep();
         step.title = "Firing the boiler system.";
-        step.description = "Set the Aquastat to 140°F. (4/7)\n";
+        step.description = "Set the Aquastat to 140°F. (4/6)\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_Indicator_Num, 140));
         step.AfterDone = () => { 
@@ -273,7 +273,7 @@ public class StepManager : MonoBehaviour
 
         step = new BStep();
         step.title = "Firing the boiler system.";
-        step.description = "Check the readings of the temperature indicators. (5/7)\n";
+        step.description = "Check the readings of the temperature indicators. (5/6)\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("Temp.Indicator", "Boiler Supply Thermometer", BChecker.eCheckAction.ECA_Indicator_Num, 138));
         step.checklist.Add(new BChecker("Temp.Indicator (1)", "Boiler Return Thermometer", BChecker.eCheckAction.ECA_Indicator_Num, 118));
@@ -282,13 +282,13 @@ public class StepManager : MonoBehaviour
 
         step = new BStep();
         step.title = "Firing the boiler system.";
-        step.description = "Set Thermostat to <b>80°F</b>. (6/7)\n";
+        step.description = "Set Thermostat to <b>80°F</b>. (6/6)\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("Thermostat", "Thermostat", BChecker.eCheckAction.ECA_Indicator_Num, 80));
         step.AfterDone = () =>
         {
             GameObject.Find("Salmson NXL13-25P.003").GetComponent<BPump>().IsOn = true;
-            //heat next room here
+            ObjectManager.instance.PipeInFloor.SetActive(true);
         };
         m_allSteps.Add(step);
 
@@ -344,6 +344,8 @@ public class StepManager : MonoBehaviour
                 {
                     NotepadManager.instance.SetNotepadContext("Stage_Operation_Finished");
                     sound = "finish";
+                    if (m_allSteps[m_currentStep].AfterDone != null)
+                        m_allSteps[m_currentStep].AfterDone();
                 }
                 else
                 {
