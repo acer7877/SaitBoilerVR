@@ -3629,10 +3629,9 @@ MonoBehaviour:
   m_text: 'Some components within the environment require parameters to be set.
 
 
-    To
-    change the settings of this clock, press "Y" to bring up the Investigation Tool.
-    Select the object using the pointer to bring up the component. Press the buttons
-    to change the display from time to date.'
+    To change the settings of this clock, press "Y" to bring up the Investigation
+    Tool. Select the object using the pointer to bring up the component. Press the
+    buttons to change the display from time to date.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6160,9 +6159,8 @@ MonoBehaviour:
   m_text: 'Many objects are able to be picked up and manipulated.
 
 
-    Reach towards
-    the coffee cup until it becomes highlighted. Press and hold the grip trigger
-    on either hand to grasp the cup and release to drop it!'
+    Reach towards the coffee cup until it becomes highlighted. Press and hold the
+    grip trigger on either hand to grasp the cup and release to drop it!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11557,11 +11555,96 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1408711849}
     m_Modifications:
+    - target: {fileID: 350459446009465723, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 350459446009465723, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 350459446009465723, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 350459446009465723, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 350459446009465723, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 581945580216301822, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 581945580216301822, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 581945580216301822, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 581945580216301822, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.828
+      objectReference: {fileID: 0}
+    - target: {fileID: 581945580216301822, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.857
+      objectReference: {fileID: 0}
+    - target: {fileID: 581945580216301822, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.538
+      objectReference: {fileID: 0}
     - target: {fileID: 664229304567097419, guid: 9733c28ca9862354d87e1260c9f329a1,
         type: 3}
       propertyPath: InteractWith.Array.data[0]
       value: 
       objectReference: {fileID: 1087066383508990}
+    - target: {fileID: 2841749195758343454, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841749195758343454, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841749195758343454, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841749195758343454, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.828
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841749195758343454, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.895
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841749195758343454, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.538
+      objectReference: {fileID: 0}
     - target: {fileID: 3999685745578986556, guid: 9733c28ca9862354d87e1260c9f329a1,
         type: 3}
       propertyPath: InteractWith.Array.size
@@ -11572,6 +11655,36 @@ PrefabInstance:
       propertyPath: InteractWith.Array.data[0]
       value: 
       objectReference: {fileID: 1087066383508990}
+    - target: {fileID: 5118467938438312013, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.012771483
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118467938438312013, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.024194157
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118467938438312013, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.025810793
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118467938438312013, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.06552847
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118467938438312013, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.09245132
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118467938438312013, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.08955846
+      objectReference: {fileID: 0}
     - target: {fileID: 6099601006312750988, guid: 9733c28ca9862354d87e1260c9f329a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -11580,17 +11693,17 @@ PrefabInstance:
     - target: {fileID: 6099601006312750988, guid: 9733c28ca9862354d87e1260c9f329a1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4450351
+      value: 1.437
       objectReference: {fileID: 0}
     - target: {fileID: 6099601006312750988, guid: 9733c28ca9862354d87e1260c9f329a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.823
+      value: 0.671
       objectReference: {fileID: 0}
     - target: {fileID: 6099601006312750988, guid: 9733c28ca9862354d87e1260c9f329a1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.9106727
+      value: 4.141
       objectReference: {fileID: 0}
     - target: {fileID: 6099601006312750988, guid: 9733c28ca9862354d87e1260c9f329a1,
         type: 3}
@@ -11626,6 +11739,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 16.178001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753097978032976011, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.009118917
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753097978032976011, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.020962235
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753097978032976011, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.019195857
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753097978032976011, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.063406646
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753097978032976011, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.10561275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753097978032976011, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.0892836
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233122146980593219, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233122146980593219, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233122146980593219, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233122146980593219, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.6724
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233122146980593219, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.736
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233122146980593219, guid: 9733c28ca9862354d87e1260c9f329a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.6312
       objectReference: {fileID: 0}
     - target: {fileID: 8007265478002663435, guid: 9733c28ca9862354d87e1260c9f329a1,
         type: 3}
@@ -15945,9 +16118,8 @@ MonoBehaviour:
 
 
 
-    Press in the joystick on either hand to activate the
-    teleportation pointer. If the pointer is green, you will teleport to that location
-    on the floor.'
+    Press in the joystick on either hand to activate the teleportation pointer. If
+    the pointer is green, you will teleport to that location on the floor.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -22465,9 +22637,8 @@ MonoBehaviour:
     the comissioning experience!
 
 
-    At any time you may feel stuck or wish to
-    select another experience, click the left controller menu button to reset the
-    lab!
+    At any time you may feel stuck or wish to select another experience, click the
+    left controller menu button to reset the lab!
 
 
     Good Luck!'
