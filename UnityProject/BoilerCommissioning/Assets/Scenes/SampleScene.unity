@@ -17126,7 +17126,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -12.191933}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -18059,10 +18059,21 @@ PrefabInstance:
       propertyPath: Sound
       value: 
       objectReference: {fileID: 1644249729}
+    - target: {fileID: 827284216270001272, guid: e81ae5a5f5b029f4ab871fc6e1fb1b53,
+        type: 3}
+      propertyPath: Effect
+      value: 
+      objectReference: {fileID: 7935143230832642439, guid: 72cbd48bd21bc7a46a319d5fb2cda9ec,
+        type: 3}
     - target: {fileID: 827284216270001273, guid: e81ae5a5f5b029f4ab871fc6e1fb1b53,
         type: 3}
       propertyPath: m_Name
       value: Leak@BV-21
+      objectReference: {fileID: 0}
+    - target: {fileID: 827284216270001273, guid: e81ae5a5f5b029f4ab871fc6e1fb1b53,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 827284216270001276, guid: e81ae5a5f5b029f4ab871fc6e1fb1b53,
         type: 3}
