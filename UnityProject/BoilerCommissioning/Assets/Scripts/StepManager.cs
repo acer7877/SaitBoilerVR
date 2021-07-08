@@ -220,6 +220,10 @@ public class StepManager : MonoBehaviour
         step.checklist.Add(new BChecker("BV-16", "In-floor Heating 2 Valve", BChecker.eCheckAction.ECA_Valve_on));
         step.checklist.Add(new BChecker("BV-15", "In-floor Heating 3 Valve", BChecker.eCheckAction.ECA_Valve_on));
         step.checklist.Add(new BChecker("BV-14", "In-floor Heating 4 Valve", BChecker.eCheckAction.ECA_Valve_on));
+        step.AfterDone = () =>
+        {
+            GameObject.Find("Leak@BV-21").GetComponent<BLeak>().setOn(true);
+        };
         m_allSteps.Add(step);
 
         step = new BStep();
@@ -231,6 +235,7 @@ public class StepManager : MonoBehaviour
         step.checklist.Add(new BChecker("BV-21", "In-floor Heating Return Drain", BChecker.eCheckAction.ECA_Valve_off));
         step.AfterDone = () =>
          {
+             GameObject.Find("Leak@BV-21").GetComponent<BLeak>().setOn(false);
              GameObject.Find("Leak@Salmson NXL13-25P.0015P.001").GetComponent<BLeak>().setOn(true);
          };
         m_allSteps.Add(step);
