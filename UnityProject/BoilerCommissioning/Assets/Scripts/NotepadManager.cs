@@ -67,10 +67,10 @@ public class NotepadManager : MonoBehaviour
         m_intruduction["BV-1"] = new NotepadData("Boiler Isolation Supply Valve", "Allows the boiler to be isolated for service or during system filling.");
         m_intruduction["BV-2"] = new NotepadData("Boiler Isolation Return Valve", "Allows the boiler to be isolated for service or during system filling.");
 
-        m_intruduction["Vent"] = new NotepadData("Boiler Chimney", "Ventilates Harmful products of combustion from the building using \"Natural Draft\". The heat from the burning of fuel carries the harmful gases up through the narrow chimney.");
+        m_intruduction["Vent"] = new NotepadData("Boiler Chimney", "Ventilates harmful products of combustion from the building using \"Natural Draft\". The heat from the burning of fuel carries the harmful gases up through the narrow chimney.");
         m_intruduction["Boiler"] = new NotepadData("Boiler", "Atmospheric, low mass boiler with a finned steel water tube heat exchanger.");
         m_intruduction["Tank"] = new NotepadData("Diaphragm Expansion Tank", "Manages the pressure of the fluid in the heating system. Prevents the compression of air in the event there is mixing within the line.");
-        m_intruduction["Exchanger"] = new NotepadData("Indirect Domestic Water Heater (DHW)", "This Domestic water heater is heated by a coil type heat exchanger contained inside the tank that courses hot boiler water through it instead of using a burner or electricity.");
+        m_intruduction["Exchanger"] = new NotepadData("Indirect Domestic Water Heater (DHW)", "This Domestic water heater is heated by a coil-type heat exchanger contained inside the tank that courses hot boiler water through it instead of using a burner or electricity.");
 
         m_intruduction["BV-13"] = new NotepadData("Cold Domestic Water Inlet Valve (Supply)", "This Valve allows fresh domestic water to enter the tank.");
         m_intruduction["BV-9"] = new NotepadData("Indirect DHW Circulator Isolation Valve", "This valve (when used in conjunction with other valves) can be used to isolate either the heat exchanger coil inside of the DHW tank, or the circulator.");

@@ -58,10 +58,10 @@ public class BChecker
                 ActionString += string.Format("Put <u>{0}</u> away.", targetName);
                 break;
             case eCheckAction.ECA_Valve_on:
-                ActionString += string.Format("Find and switch <b>on</b> <u>{0}</u>.", targetName);
+                ActionString += string.Format("Find and <b>switch on</b> <u>{0}</u>.", targetName);
                 break;
             case eCheckAction.ECA_Valve_off:
-                ActionString += string.Format("Find and switch <b>off</b> <u>{0}</u>.", targetName);
+                ActionString += string.Format("Find and <b>switch off</b> <u>{0}</u>.", targetName);
                 break;
             case eCheckAction.ECA_Object_on:
                 ActionString += string.Format("Find and make sure <u>{0}</u> is <b>working</b>.\n(Touch it to test it.  If a <color=green><b>green<b>" +
@@ -71,16 +71,16 @@ public class BChecker
                 ActionString += string.Format("Find and make sure <u>{0}</u> is <b>stop working</b>.", targetName);
                 break;
             case eCheckAction.ECA_Indicator_Num:
-                ActionString += string.Format("Check <u>{0}</u> and use the buttons to adjust the Number to <b>{1}</b>.", targetName, arg);
+                ActionString += string.Format("Check <u>{0}</u> and use the buttons to adjust the pressure value to <b>{1}</b>.", targetName, arg);
                 break;
             case eCheckAction.ECA_Indicator_Tmp:
-                ActionString += string.Format("Check <u>{0}</u> and the Number should go to <b>{1}</b>.", targetName, arg);
+                ActionString += string.Format("Check <u>{0}</u> and ensure the temperature is set to <b>{1}</b>.", targetName, arg);
                 break;
             case eCheckAction.ECA_Fix:
-                ActionString += string.Format("Fix <u>{0}</u> with a wrench ", targetName);
+                ActionString += string.Format("Fix the <u>{0}</u> with the Pipe Wrench ", targetName);
                 break;
             case eCheckAction.ECA_Swith_boiler_on:
-                ActionString += string.Format("Turn on <u>{0}</u> by operate the turn on the switch on the wall. ", targetName);
+                ActionString += string.Format("Turn on the <u>{0}</u> using the Emergency Switch. ", targetName);
                 break;
             default:
                 throw new System.Exception("unknow check action!" + targtAction.ToString());
@@ -250,14 +250,14 @@ public class StepManager : MonoBehaviour
         //Firing the boiler system.(1/n)
         step = new BStep();
         step.title = "Firing the boiler system.";
-        step.description = "Repair any leaking pipes using the Pipe Wrench. (1/6)\n";
+        step.description = "Repair any leaking pipes. (1/6)\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("Leak@Salmson NXL13-25P.0015P.001", "Water leaking at pump", BChecker.eCheckAction.ECA_Fix));
         m_allSteps.Add(step);
 
         step = new BStep();
         step.title = "Firing the boiler system.";
-        step.description = "Turn on switch to boiler. (2/6)\n";
+        step.description = "Turn on the switch to the boiler. (2/6)\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("Boiler", "Boiler", BChecker.eCheckAction.ECA_Swith_boiler_on));
         m_allSteps.Add(step);
@@ -274,7 +274,7 @@ public class StepManager : MonoBehaviour
         step.title = "Firing the boiler system.";
         step.description = "Set the Aquastat to 140°F. (4/6)\n";
         step.checklist = new List<BChecker>();
-        step.checklist.Add(new BChecker("AquaStat", "AquaStat XXX", BChecker.eCheckAction.ECA_Indicator_Num, 140));
+        step.checklist.Add(new BChecker("AquaStat", "Aquastat", BChecker.eCheckAction.ECA_Indicator_Num, 140));
         step.AfterDone = () => { 
             GameObject.Find("Salmson NXL13-25P.001").GetComponent<BPump>().IsOn = true; 
             GameObject.Find("Salmson NXL13-25P.002").GetComponent<BPump>().IsOn = true;
@@ -293,7 +293,7 @@ public class StepManager : MonoBehaviour
 
         step = new BStep();
         step.title = "Firing the boiler system.";
-        step.description = "Set Thermostat to <b>80°F</b>. (6/6)\n";
+        step.description = "Go to the conditioned room and set Thermostat to <b>80°F</b>. (6/6)\n";
         step.checklist = new List<BChecker>();
         step.checklist.Add(new BChecker("Thermostat", "Thermostat", BChecker.eCheckAction.ECA_Indicator_Num, 80));
         step.AfterDone = () =>
