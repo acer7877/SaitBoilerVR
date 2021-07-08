@@ -10,12 +10,14 @@ public class BLeak : MonoBehaviour
 {
     bool m_isOn;
     public ParticleSystem Effect;
+    public AudioSource Sound;
 
     protected void Awake()
     {
         setOn(false);
         MeshRenderer m = GetComponent<MeshRenderer>();
         m.enabled = false;
+        Sound.Stop();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,9 +33,15 @@ public class BLeak : MonoBehaviour
     {
         m_isOn = isOn;
         if (m_isOn)
+        {
             Effect.Play();
+            Sound.Play();
+        }
         else
+        {
             Effect.Stop();
+            Sound.Stop();
+        }
     }
 
 }

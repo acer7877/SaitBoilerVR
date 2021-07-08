@@ -20,7 +20,7 @@ public class WrenchHelper : MonoBehaviour
     public BValve ValveLogic;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "PipeWrench")
+        if (other.name == "PipeWrench" || other.name == "PipeWrench_big")
         {
             ValveLogic.autoSwitch();
         }

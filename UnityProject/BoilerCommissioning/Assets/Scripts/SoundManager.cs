@@ -29,6 +29,7 @@ public class SoundManager : MonoBehaviour
         m_audioClips.Add("finish", Resources.Load<AudioClip>("sound/victory"));
         m_audioClips.Add("dingdon", Resources.Load<AudioClip>("sound/doorbell"));
         m_audioClips.Add("di", Resources.Load<AudioClip>("sound/di"));
+        m_audioClips.Add("valve", Resources.Load<AudioClip>("sound/ValveSound"));
     }
 
     public void Play(string target)

@@ -11,6 +11,7 @@ public class BValve : MonoBehaviour
     public GameObject Hinge;
     VRTK_ArtificialRotator rotator;
     bool m_isOn;
+    AudioSource soundEffect;
 
     protected void Awake()
     {
@@ -22,6 +23,8 @@ public class BValve : MonoBehaviour
         rotator = GetComponent<VRTK_ArtificialRotator>();
 
         m_isOn = false;
+        soundEffect = GetComponentInChildren<AudioSource>();
+
         //valve registed at valve-body, it's a BGameObject
         //ObjectManager.instance.RegistGameObject(getParentName(), gameObject.transform.parent.gameObject);
     }
@@ -43,6 +46,9 @@ public class BValve : MonoBehaviour
     void valveOnByPlayer(object sender, ControllableEventArgs e)
     {
         m_isOn = true;
+        if (Time.time < 1)
+            return;
+
         if (StageManager.instance.CurrentStage == StageManager.EnumStage.Operatie)
         {
             ObjectManager.instance.Action(getParentName(), BChecker.eCheckAction.ECA_Valve_on);
@@ -52,11 +58,17 @@ public class BValve : MonoBehaviour
         {
             OpenWorldMgr.instance.OperateValve(getParentName(), m_isOn);
         }
+
+        soundEffect.Play();
     }
 
     void valveOffByPlayer(object sender, ControllableEventArgs e)
     {
         m_isOn = false;
+
+        if (Time.time < 1)
+            return;
+
         if (StageManager.instance.CurrentStage == StageManager.EnumStage.Operatie)
         {
             ObjectManager.instance.Action(getParentName(), BChecker.eCheckAction.ECA_Valve_off);
@@ -66,6 +78,9 @@ public class BValve : MonoBehaviour
         {
             OpenWorldMgr.instance.OperateValve(getParentName(), m_isOn);
         }
+
+        soundEffect.Play();
+
     }
 
 
