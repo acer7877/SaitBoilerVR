@@ -119,7 +119,7 @@ public class StepManager : MonoBehaviour
         initAllSteps();
     }
 
-    public UnityEngine.UI.Button NextStepBtn;
+    public GameObject NextStepBtn;
 
     //operation steps
     List<BStep> m_allSteps;
@@ -322,7 +322,7 @@ public class StepManager : MonoBehaviour
         m_currentStep = 0;
         m_allSteps[0].PrintToNotpad();
         NextStepBtn.gameObject.SetActive(true);
-        NextStepBtn.enabled = false;
+        NextStepBtn.SetActive(false);
     }
     public void Action(string name, BChecker.eCheckAction type)
     {
@@ -362,7 +362,7 @@ public class StepManager : MonoBehaviour
                 {
                     m_allSteps[m_currentStep].PrintToNotpad();
                     sound = "step";
-                    NextStepBtn.enabled = true;
+                    NextStepBtn.SetActive(true);
 
                     if (m_allSteps[m_currentStep].AfterDone != null)
                         m_allSteps[m_currentStep].AfterDone();
@@ -400,7 +400,7 @@ public class StepManager : MonoBehaviour
     {
         m_currentStep += 1;
         m_allSteps[m_currentStep].PrintToNotpad();
-        NextStepBtn.enabled = false;
+        NextStepBtn.SetActive(false);
     }
 
     //To show bubble at current operatable objects
