@@ -16516,22 +16516,22 @@ MonoBehaviour:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
     typeName: VRTK.SDK_OculusSystem
-    descriptionIndex: 1
+    descriptionIndex: 0
   cachedBoundariesSDKInfo:
     baseTypeName: VRTK.SDK_BaseBoundaries
     fallbackTypeName: VRTK.SDK_FallbackBoundaries
     typeName: VRTK.SDK_OculusBoundaries
-    descriptionIndex: 1
+    descriptionIndex: 0
   cachedHeadsetSDKInfo:
     baseTypeName: VRTK.SDK_BaseHeadset
     fallbackTypeName: VRTK.SDK_FallbackHeadset
     typeName: VRTK.SDK_OculusHeadset
-    descriptionIndex: 1
+    descriptionIndex: 0
   cachedControllerSDKInfo:
     baseTypeName: VRTK.SDK_BaseController
     fallbackTypeName: VRTK.SDK_FallbackController
     typeName: VRTK.SDK_OculusController
-    descriptionIndex: 1
+    descriptionIndex: 0
 --- !u!1 &1531778059
 GameObject:
   m_ObjectHideFlags: 0
@@ -22505,7 +22505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ecf5bf43804914dace3c107c9c321e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextStepBtn: {fileID: 1037113549}
+  NextStepBtn: {fileID: 0}
   HintTransfor: {fileID: 1854412631740267787, guid: ac81541b0fa9d714ea62cfb01d47c0dd,
     type: 3}
 --- !u!114 &1979079611
@@ -49129,7 +49129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d196d1f6b9276ef48ba6218060c46514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HighlightThickness: 0.5
+  HighlightThickness: 0.001
   ParentCnt: 0
 --- !u!23 &7818496732797488491
 MeshRenderer:
@@ -52236,7 +52236,6 @@ GameObject:
   - component: {fileID: 2557250525290757190}
   - component: {fileID: 2080592246701162687}
   - component: {fileID: 6947731403995522738}
-  - component: {fileID: 9019721726263473709}
   m_Layer: 0
   m_Name: Switch Frame
   m_TagString: Untagged
@@ -52244,20 +52243,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &9019721726263473709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9019721726263473708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d196d1f6b9276ef48ba6218060c46514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HighlightThickness: 0.001
-  ParentCnt: 1
 --- !u!1 &9026152134769152954
 GameObject:
   m_ObjectHideFlags: 0
