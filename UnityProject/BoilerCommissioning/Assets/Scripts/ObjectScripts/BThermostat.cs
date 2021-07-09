@@ -4,12 +4,12 @@ using UnityEngine;
 using VRTK;
 using TMPro;
 
-public class BTheamostat : BGameObject
+public class BThermostat : BGameObject
 {
     int Num,TargetNum;
     public TMP_Text m_screen;
     //For the object in hand, we need a component in the boiler system as target
-    BTheamostat linked;
+    BThermostat linked;
     protected override void Awake()
     {
         base.Awake();
@@ -41,7 +41,7 @@ public class BTheamostat : BGameObject
             && ControllerManager.instance.GetRightHandMode() == "Glass")
         {//for now only do the check in steps and when right hand is magnifying glass
             ControllerManager.instance.SetLeftHandModel_tmp("Theamostat");
-            linked = ControllerManager.instance.LeftControllerList["Theamostat"].GetComponent<BTheamostat>();
+            linked = ControllerManager.instance.LeftControllerList["Theamostat"].GetComponent<BThermostat>();
             linked.linked = this;
 
             BChecker bc = StepManager.instance.GetCheckerByNameFromCurStep(BGetName());

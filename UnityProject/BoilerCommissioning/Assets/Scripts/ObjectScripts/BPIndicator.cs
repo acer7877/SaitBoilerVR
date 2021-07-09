@@ -86,6 +86,6 @@ public class BPIndicator : BGameObject
     public void setNum(int n)
     {
         Num = n;
-        m_screen.text = n.ToString() + "°F";
+        m_screen.text = n.ToString() + "PSI";
     }
 }
