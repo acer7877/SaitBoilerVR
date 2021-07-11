@@ -73,7 +73,7 @@ public class BThermostat : BGameObject
         linked.NumAddLinked(num);
     }
 
-    public void NumAddLinked(int num = 10)
+    void NumAddLinked(int num = 10)
     {
         setNum(num + Num);
         if (TargetNum != 0 && Num == TargetNum)

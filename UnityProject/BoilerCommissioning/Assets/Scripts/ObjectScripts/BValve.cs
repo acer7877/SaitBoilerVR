@@ -6,6 +6,8 @@ using VRTK.Controllables;
 using VRTK.Controllables.ArtificialBased;
 using static VRTK.Controllables.VRTK_BaseControllable;
 
+//this is not a chinld of BGameobject, no need to hihglit or show discription
+//attach this script only to the handle of valve
 public class BValve : MonoBehaviour
 {
     public GameObject Hinge;

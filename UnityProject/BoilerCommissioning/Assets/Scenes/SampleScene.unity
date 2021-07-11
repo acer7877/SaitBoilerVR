@@ -3629,9 +3629,10 @@ MonoBehaviour:
   m_text: 'Some components within the environment require parameters to be set.
 
 
-    To change the settings of this clock, press "Y" to bring up the Investigation
-    Tool. Select the object using the pointer to bring up the component. Press the
-    buttons to change the display from time to date.'
+    To
+    change the settings of this clock, press "Y" to bring up the Investigation Tool.
+    Select the object using the pointer to bring up the component. Press the buttons
+    to change the display from time to date.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6159,8 +6160,9 @@ MonoBehaviour:
   m_text: 'Many objects are able to be picked up and manipulated.
 
 
-    Reach towards the coffee cup until it becomes highlighted. Press and hold the
-    grip trigger on either hand to grasp the cup and release to drop it!'
+    Reach towards
+    the coffee cup until it becomes highlighted. Press and hold the grip trigger
+    on either hand to grasp the cup and release to drop it!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10391,8 +10393,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.10180843, y: 3.1533027, z: 4.760366}
-  m_Center: {x: 0.949096, y: 0.57665133, z: 1.3801825}
+  m_Size: {x: 0.10180843, y: 3.1533027, z: 3.1215036}
+  m_Center: {x: 0.949096, y: 0.57665133, z: 0.5607511}
 --- !u!1001 &911850723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12766,6 +12768,7 @@ GameObject:
   - component: {fileID: 1131991940}
   - component: {fileID: 1131991942}
   - component: {fileID: 1131991941}
+  - component: {fileID: 1131991943}
   m_Layer: 0
   m_Name: Door Leaf
   m_TagString: Untagged
@@ -12834,6 +12837,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131991939}
   m_Mesh: {fileID: 4403503948874205534, guid: d56c9fdf0cfac3243b8301ce31604738, type: 3}
+--- !u!65 &1131991943
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131991939}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 270.99738, y: 53.805775, z: 675.85297}
+  m_Center: {x: 0, y: 29.035433, z: -340.55118}
 --- !u!1 &1133165388
 GameObject:
   m_ObjectHideFlags: 0
@@ -16118,8 +16134,9 @@ MonoBehaviour:
 
 
 
-    Press in the joystick on either hand to activate the teleportation pointer. If
-    the pointer is green, you will teleport to that location on the floor.'
+    Press in the joystick on either hand to activate the
+    teleportation pointer. If the pointer is green, you will teleport to that location
+    on the floor.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -22637,8 +22654,9 @@ MonoBehaviour:
     the comissioning experience!
 
 
-    At any time you may feel stuck or wish to select another experience, click the
-    left controller menu button to reset the lab!
+    At any time you may feel stuck or wish to
+    select another experience, click the left controller menu button to reset the
+    lab!
 
 
     Good Luck!'
